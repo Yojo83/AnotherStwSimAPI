@@ -16,9 +16,12 @@ public class PlugInClient {
 	
 	public PlugInClient(String name, String author, String version, String description) {
 		this.registrationXml = "<register name='" + name + "' autor='" + author 
-				+ "' version='" + version + "' protokoll='1' text='" + description + "' />";
+				+ "' version='" + version + "' protokoll='1' text='" + description + "' />\n";
 	}
 	
+	public void connect() throws IOException {
+		connect("localhost");
+	}
 	
 	public void connect(String host) throws IOException {
 		if(readerThread != null)
@@ -41,6 +44,11 @@ public class PlugInClient {
 			throw new NullPointerException();
 		
 		listener = newListener;
+	}
+	
+	
+	public void sendMessageRaw(String msg) throws IOException {
+		readerThread.sendMessage(msg);
 	}
 	
 }

@@ -1,0 +1,74 @@
+<bahnsteigliste >
+<bahnsteig name='Einfahrt Bad Cannstatt' haltepunkt='true' >
+</bahnsteig>
+<bahnsteig name='Einfahrt Plochingen' haltepunkt='true' >
+</bahnsteig>
+<bahnsteig name='TE2' haltepunkt='false' >
+<n name='TE4' />
+<n name='TE3' />
+<n name='TE6' />
+<n name='TE5' />
+<n name='TE8' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE3' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE4' />
+<n name='TE6' />
+<n name='TE5' />
+<n name='TE8' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE4' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE3' />
+<n name='TE6' />
+<n name='TE5' />
+<n name='TE8' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE5' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE4' />
+<n name='TE3' />
+<n name='TE6' />
+<n name='TE8' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE6' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE4' />
+<n name='TE3' />
+<n name='TE5' />
+<n name='TE8' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE7' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE4' />
+<n name='TE3' />
+<n name='TE6' />
+<n name='TE5' />
+<n name='TE8' />
+</bahnsteig>
+<bahnsteig name='TE8' haltepunkt='false' >
+<n name='TE2' />
+<n name='TE4' />
+<n name='TE3' />
+<n name='TE6' />
+<n name='TE5' />
+<n name='TE7' />
+</bahnsteig>
+<bahnsteig name='TE20' haltepunkt='false' >
+<n name='TE21' />
+</bahnsteig>
+<bahnsteig name='TE21' haltepunkt='false' >
+<n name='TE20' />
+</bahnsteig>
+<bahnsteig name='TEME' haltepunkt='true' >
+</bahnsteig>
+<bahnsteig name='TEZL' haltepunkt='true' >
+</bahnsteig>
+<bahnsteig name='TOES' haltepunkt='true' >
+</bahnsteig>
+</bahnsteigliste>

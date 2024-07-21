@@ -1,0 +1,463 @@
+<wege >
+<shape name='TE2' type='5' />
+<shape name='TE2' type='5' />
+<shape name='TE20' type='5' />
+<shape name='TE21' type='5' />
+<shape name='TE3' type='5' />
+<shape name='TE3' type='5' />
+<shape name='TE4' type='5' />
+<shape name='TE4' type='5' />
+<shape name='TE5' type='5' />
+<shape name='TE5' type='5' />
+<shape name='TE6' type='5' />
+<shape name='TE6' type='5' />
+<shape name='TE7' type='5' />
+<shape name='TE7' type='5' />
+<shape name='TE8' type='5' />
+<shape name='TE8' type='5' />
+<shape name='TEME' type='12' />
+<shape name='TEME' type='12' />
+<shape name='TEME' type='12' />
+<shape name='TEME' type='12' />
+<shape name='TEZL' type='12' />
+<shape name='TEZL' type='12' />
+<shape name='TEZL' type='12' />
+<shape name='TEZL' type='12' />
+<shape name='TOES' type='12' />
+<shape name='TOES' type='12' />
+<shape name='TOES' type='12' />
+<shape name='TOES' type='12' />
+<shape name='Bad Cannstatt F' enr='1' type='6' />
+<shape name='Bad Cannstatt F' enr='2' type='6' />
+<shape name='Bad Cannstatt N' enr='3' type='6' />
+<shape name='Bad Cannstatt N' enr='4' type='6' />
+<shape name='Abstellung' enr='5' type='6' />
+<shape name='Plochingen F' enr='6' type='6' />
+<shape name='Plochingen F' enr='7' type='6' />
+<shape name='Plochingen N' enr='8' type='6' />
+<shape name='Plochingen N' enr='9' type='6' />
+<shape name='Bad Cannstatt F' enr='21' type='7' />
+<shape name='Bad Cannstatt F' enr='22' type='7' />
+<shape name='Bad Cannstatt N' enr='23' type='7' />
+<shape name='Bad Cannstatt N' enr='24' type='7' />
+<shape name='Plochingen F' enr='26' type='7' />
+<shape name='Plochingen F' enr='27' type='7' />
+<shape name='Plochingen N' enr='28' type='7' />
+<shape name='Plochingen N' enr='29' type='7' />
+<shape name='S103' enr='60' type='2' />
+<shape name='S105' enr='61' type='2' />
+<shape name='S106' enr='62' type='2' />
+<shape name='S107' enr='63' type='2' />
+<shape name='S110' enr='64' type='2' />
+<shape name='S113' enr='65' type='2' />
+<shape name='S114' enr='66' type='2' />
+<shape name='S115' enr='67' type='2' />
+<shape name='S118' enr='68' type='2' />
+<shape name='S121' enr='69' type='2' />
+<shape name='S122' enr='70' type='2' />
+<shape name='S123' enr='71' type='2' />
+<shape name='S126' enr='72' type='2' />
+<shape name='S128' enr='73' type='2' />
+<shape name='S129' enr='74' type='2' />
+<shape name='S130' enr='75' type='2' />
+<shape name='S131' enr='76' type='2' />
+<shape name='S134' enr='77' type='2' />
+<shape name='S139' enr='78' type='2' />
+<shape name='S140' enr='79' type='2' />
+<shape name='S147' enr='80' type='2' />
+<shape name='S148' enr='81' type='2' />
+<shape name='S154' enr='82' type='2' />
+<shape name='S163' enr='83' type='2' />
+<shape name='S164' enr='84' type='2' />
+<shape name='S172' enr='85' type='2' />
+<shape name='S175' enr='86' type='2' />
+<shape name='S176' enr='87' type='2' />
+<shape name='S179' enr='88' type='2' />
+<shape name='S180' enr='89' type='2' />
+<shape name='S192' enr='90' type='2' />
+<shape name='S193' enr='91' type='2' />
+<shape name='S202' enr='92' type='2' />
+<shape name='S211' enr='93' type='2' />
+<shape name='S212' enr='94' type='2' />
+<shape name='S218' enr='95' type='2' />
+<shape name='S221' enr='96' type='2' />
+<shape name='S223' enr='97' type='2' />
+<shape name='S224' enr='98' type='2' />
+<shape name='S225' enr='99' type='2' />
+<shape name='S228' enr='100' type='2' />
+<shape name='S229' enr='101' type='2' />
+<shape name='S230' enr='102' type='2' />
+<shape name='S233' enr='103' type='2' />
+<shape name='S234' enr='104' type='2' />
+<shape name='S235' enr='105' type='2' />
+<shape name='S238' enr='106' type='2' />
+<shape name='S239' enr='107' type='2' />
+<shape name='S240' enr='108' type='2' />
+<shape name='104' enr='109' type='3' />
+<shape name='111' enr='110' type='4' />
+<shape name='112' enr='111' type='3' />
+<shape name='119' enr='112' type='4' />
+<shape name='120' enr='113' type='3' />
+<shape name='127' enr='114' type='4' />
+<shape name='132' enr='115' type='4' />
+<shape name='133' enr='116' type='3' />
+<shape name='135' enr='117' type='4' />
+<shape name='136' enr='118' type='3' />
+<shape name='138' enr='120' type='4' />
+<shape name='141' enr='121' type='3' />
+<shape name='144' enr='124' type='3' />
+<shape name='145' enr='125' type='3' />
+<shape name='146' enr='126' type='4' />
+<shape name='149' enr='127' type='4' />
+<shape name='150' enr='128' type='3' />
+<shape name='151' enr='129' type='3' />
+<shape name='157' enr='134' type='4' />
+<shape name='158' enr='135' type='3' />
+<shape name='159' enr='136' type='4' />
+<shape name='162' enr='139' type='3' />
+<shape name='165' enr='140' type='3' />
+<shape name='166' enr='141' type='4' />
+<shape name='167' enr='142' type='3' />
+<shape name='168' enr='143' type='3' />
+<shape name='169' enr='144' type='4' />
+<shape name='173' enr='147' type='4' />
+<shape name='174' enr='148' type='3' />
+<shape name='177' enr='149' type='3' />
+<shape name='178' enr='150' type='3' />
+<shape name='181' enr='151' type='4' />
+<shape name='182' enr='152' type='3' />
+<shape name='185' enr='155' type='3' />
+<shape name='186' enr='156' type='4' />
+<shape name='189' enr='159' type='4' />
+<shape name='190' enr='160' type='3' />
+<shape name='191' enr='161' type='3' />
+<shape name='194' enr='162' type='3' />
+<shape name='195' enr='163' type='4' />
+<shape name='196' enr='164' type='3' />
+<shape name='197' enr='165' type='4' />
+<shape name='198' enr='166' type='3' />
+<shape name='199' enr='167' type='4' />
+<shape name='205' enr='172' type='4' />
+<shape name='208' enr='175' type='4' />
+<shape name='209' enr='176' type='3' />
+<shape name='210' enr='177' type='4' />
+<shape name='213' enr='178' type='4' />
+<shape name='214' enr='179' type='4' />
+<shape name='215' enr='180' type='4' />
+<connector enr2='135' enr1='134' />
+<connector enr2='150' enr1='148' />
+<connector enr1='90' name2='TE7' />
+<connector enr2='136' enr1='135' />
+<connector enr2='21' enr1='65' />
+<connector enr1='91' name2='TE7' />
+<connector enr2='110' enr1='109' />
+<connector enr2='69' name1='TEME' />
+<connector enr2='73' enr1='80' />
+<connector enr2='139' enr1='136' />
+<connector enr2='91' name1='TE7' />
+<connector enr2='98' enr1='79' />
+<connector enr2='155' enr1='71' />
+<connector enr2='74' enr1='64' />
+<connector enr1='69' name2='TEME' />
+<connector enr2='65' enr1='86' />
+<connector enr2='107' name1='TEZL' />
+<connector enr2='88' enr1='95' />
+<connector enr2='162' enr1='91' />
+<connector enr1='107' name2='TEZL' />
+<connector enr2='85' enr1='102' />
+<connector enr2='90' enr1='92' />
+<connector enr2='163' enr1='162' />
+<connector enr2='70' enr1='90' />
+<connector enr2='164' enr1='163' />
+<connector enr2='69' enr1='70' />
+<connector enr2='83' enr1='139' />
+<connector enr2='71' enr1='68' />
+<connector enr2='165' enr1='164' />
+<connector enr1='108' name2='TEZL' />
+<connector enr2='166' enr1='165' />
+<connector enr2='29' enr1='107' />
+<connector enr2='167' enr1='166' />
+<connector enr2='73' enr1='76' />
+<connector enr2='118' enr1='126' />
+<connector enr2='108' name1='TEZL' />
+<connector enr1='70' name2='TEME' />
+<connector enr2='66' enr1='60' />
+<connector enr2='83' name1='TE4' />
+<connector enr2='83' enr1='92' />
+<connector enr2='92' enr1='167' />
+<connector enr2='70' name1='TEME' />
+<connector enr2='70' enr1='83' />
+<connector enr2='62' enr1='88' />
+<connector enr2='98' enr1='97' />
+<connector enr2='149' enr1='151' />
+<connector enr2='65' enr1='78' />
+<connector enr2='91' enr1='71' />
+<connector enr2='108' enr1='9' />
+<connector enr2='89' enr1='75' />
+<connector enr1='83' name2='TE4' />
+<connector enr2='29' enr1='108' />
+<connector enr2='93' enr1='82' />
+<connector enr2='90' enr1='85' />
+<connector enr2='100' enr1='94' />
+<connector enr2='106' enr1='89' />
+<connector enr1='84' name2='TE4' />
+<connector enr2='167' enr1='142' />
+<connector enr2='143' enr1='165' />
+<connector enr2='97' enr1='99' />
+<connector enr2='70' enr1='77' />
+<connector enr2='124' enr1='63' />
+<connector enr2='62' enr1='80' />
+<connector enr2='84' name1='TE4' />
+<connector enr2='71' enr1='70' />
+<connector enr2='116' enr1='115' />
+<connector enr2='86' enr1='82' />
+<connector enr2='83' enr1='85' />
+<connector enr2='116' enr1='77' />
+<connector enr2='140' enr1='84' />
+<connector enr2='89' enr1='63' />
+<connector enr2='87' enr1='67' />
+<connector enr2='84' enr1='71' />
+<connector enr2='155' enr1='172' />
+<connector enr2='81' enr1='75' />
+<connector enr2='96' enr1='5' />
+<connector enr2='77' name1='TE20' />
+<connector enr2='99' enr1='98' />
+<connector enr2='92' name1='TOES' />
+<connector enr2='141' enr1='140' />
+<connector enr2='100' enr1='87' />
+<connector enr2='142' enr1='141' />
+<connector enr1='117' name2='TE20' />
+<connector enr1='92' name2='TOES' />
+<connector enr2='76' enr1='78' />
+<connector enr2='26' enr1='98' />
+<connector enr2='143' enr1='142' />
+<connector enr2='144' enr1='143' />
+<connector enr2='62' enr1='76' />
+<connector enr2='104' enr1='91' />
+<connector enr2='92' enr1='103' />
+<connector enr2='85' enr1='144' />
+<connector enr2='127' enr1='121' />
+<connector enr2='99' enr1='6' />
+<connector enr2='81' enr1='63' />
+<connector enr2='79' enr1='67' />
+<connector enr2='78' enr1='82' />
+<connector enr2='26' enr1='99' />
+<connector enr2='100' enr1='79' />
+<connector enr2='23' enr1='73' />
+<connector enr2='175' enr1='160' />
+<connector enr2='104' enr1='84' />
+<connector enr2='98' enr1='89' />
+<connector enr2='161' enr1='177' />
+<connector enr2='114' enr1='113' />
+<connector enr1='103' name2='TOES' />
+<connector enr2='22' enr1='64' />
+<connector enr2='64' enr1='2' />
+<connector enr2='103' name1='TOES' />
+<connector enr2='73' enr1='90' />
+<connector enr2='110' enr1='64' />
+<connector enr2='22' enr1='65' />
+<connector enr2='21' enr1='69' />
+<connector enr2='88' enr1='150' />
+<connector enr2='111' enr1='110' />
+<connector enr2='98' enr1='81' />
+<connector enr2='74' enr1='68' />
+<connector enr2='88' name1='TE6' />
+<connector enr2='97' enr1='82' />
+<connector enr2='73' enr1='83' />
+<connector enr2='65' enr1='88' />
+<connector enr2='65' enr1='111' />
+<connector enr2='162' enr1='178' />
+<connector enr2='104' enr1='103' />
+<connector enr2='93' enr1='92' />
+<connector enr2='90' enr1='95' />
+<connector enr2='147' enr1='139' />
+<connector enr1='88' name2='TE6' />
+<connector enr2='70' enr1='93' />
+<connector enr2='125' enr1='124' />
+<connector enr2='179' enr1='164' />
+<connector enr1='89' name2='TE6' />
+<connector enr2='126' enr1='125' />
+<connector enr2='180' enr1='166' />
+<connector enr2='103' enr1='105' />
+<connector enr2='73' enr1='77' />
+<connector enr2='65' enr1='80' />
+<connector enr2='66' enr1='64' />
+<connector enr2='89' name1='TE6' />
+<connector enr2='104' name1='TEZL' />
+<connector enr2='86' enr1='92' />
+<connector enr2='80' enr1='126' />
+<connector enr2='151' enr1='89' />
+<connector enr2='70' enr1='86' />
+<connector enr2='152' enr1='151' />
+<connector enr1='104' name2='TEZL' />
+<connector enr2='94' enr1='71' />
+<connector enr2='91' enr1='75' />
+<connector enr2='93' enr1='85' />
+<connector enr2='66' enr1='65' />
+<connector enr2='71' enr1='60' />
+<connector enr2='106' enr1='91' />
+<connector enr1='105' name2='TEZL' />
+<connector enr2='28' enr1='104' />
+<connector enr2='80' name1='TE3' />
+<connector enr2='65' enr1='76' />
+<connector enr2='105' name1='TEZL' />
+<connector enr2='115' enr1='118' />
+<connector enr2='88' enr1='82' />
+<connector enr2='86' enr1='85' />
+<connector enr1='80' name2='TE3' />
+<connector enr2='62' enr1='83' />
+<connector enr2='78' enr1='92' />
+<connector enr2='105' enr1='8' />
+<connector enr2='89' enr1='67' />
+<connector enr2='87' enr1='71' />
+<connector enr2='84' enr1='75' />
+<connector enr2='28' enr1='105' />
+<connector enr2='70' enr1='78' />
+<connector enr2='140' enr1='149' />
+<connector enr2='100' enr1='89' />
+<connector enr2='120' enr1='116' />
+<connector enr1='81' name2='TE3' />
+<connector enr2='77' enr1='78' />
+<connector enr2='104' enr1='94' />
+<connector enr2='80' enr1='82' />
+<connector enr2='117' enr1='120' />
+<connector enr2='62' enr1='77' />
+<connector enr2='81' name1='TE3' />
+<connector enr2='67' enr1='66' />
+<connector enr2='175' enr1='172' />
+<connector enr2='24' enr1='72' />
+<connector enr2='72' enr1='4' />
+<connector enr2='127' enr1='81' />
+<connector enr2='84' enr1='63' />
+<connector enr2='81' enr1='67' />
+<connector enr2='79' enr1='71' />
+<connector enr2='76' name1='TE21' />
+<connector enr2='78' enr1='85' />
+<connector enr2='128' enr1='127' />
+<connector enr2='100' enr1='81' />
+<connector enr2='24' enr1='73' />
+<connector enr2='129' enr1='128' />
+<connector enr2='114' enr1='72' />
+<connector enr2='176' enr1='175' />
+<connector enr2='177' enr1='176' />
+<connector enr2='98' enr1='91' />
+<connector enr2='104' enr1='87' />
+<connector enr2='93' enr1='177' />
+<connector enr2='73' enr1='114' />
+<connector enr2='93' name1='TE8' />
+<connector enr2='82' enr1='129' />
+<connector enr2='91' enr1='96' />
+<connector enr2='73' enr1='93' />
+<connector enr1='93' name2='TE8' />
+<connector enr2='150' enr1='159' />
+<connector enr2='22' enr1='69' />
+<connector enr2='21' enr1='73' />
+<connector enr1='94' name2='TE8' />
+<connector enr2='73' name1='TEME' />
+<connector enr2='112' enr1='111' />
+<connector enr2='172' enr1='75' />
+<connector enr2='94' name1='TE8' />
+<connector enr2='104' enr1='79' />
+<connector enr2='98' enr1='84' />
+<connector enr2='74' enr1='72' />
+<connector enr1='73' name2='TEME' />
+<connector enr2='178' enr1='94' />
+<connector enr2='73' enr1='86' />
+<connector enr2='21' enr1='60' />
+<connector enr2='60' enr1='1' />
+<connector enr2='93' enr1='95' />
+<connector enr2='179' enr1='178' />
+<connector enr2='148' enr1='147' />
+<connector enr2='134' enr1='124' />
+<connector enr2='101' enr1='100' />
+<connector enr2='109' enr1='60' />
+<connector enr2='86' enr1='148' />
+<connector enr2='21' enr1='61' />
+<connector enr2='125' enr1='136' />
+<connector enr2='180' enr1='179' />
+<connector enr1='74' name2='TEME' />
+<connector enr2='74' enr1='60' />
+<connector enr2='61' enr1='109' />
+<connector enr2='86' name1='TE5' />
+<connector enr2='65' enr1='83' />
+<connector enr2='88' enr1='92' />
+<connector enr2='74' name1='TEME' />
+<connector enr2='95' enr1='180' />
+<connector enr2='70' enr1='88' />
+<connector enr2='73' enr1='78' />
+<connector enr2='94' enr1='75' />
+<connector enr1='86' name2='TE5' />
+<connector enr2='163' enr1='152' />
+<connector enr2='71' enr1='64' />
+<connector enr2='106' enr1='94' />
+<connector enr1='87' name2='TE5' />
+<connector enr2='65' enr1='77' />
+<connector enr2='80' enr1='92' />
+<connector enr2='70' enr1='80' />
+<connector enr2='87' name1='TE5' />
+<connector enr2='134' enr1='67' />
+<connector enr2='75' enr1='74' />
+<connector enr2='88' enr1='85' />
+<connector enr2='62' enr1='86' />
+<connector enr2='149' enr1='87' />
+<connector enr2='106' enr1='95' />
+<connector enr2='89' enr1='71' />
+<connector enr2='87' enr1='75' />
+<connector enr2='90' enr1='82' />
+<connector enr2='62' enr1='61' />
+<connector enr2='102' enr1='101' />
+<connector enr2='63' enr1='60' />
+<connector enr2='100' enr1='91' />
+<connector enr2='27' enr1='101' />
+<connector enr2='70' enr1='76' />
+<connector enr2='80' enr1='85' />
+<connector enr2='78' enr1='120' />
+<connector enr2='83' enr1='82' />
+<connector enr2='115' enr1='76' />
+<connector enr2='78' name1='TE2' />
+<connector enr2='102' enr1='7' />
+<connector enr2='87' enr1='63' />
+<connector enr2='84' enr1='67' />
+<connector enr2='81' enr1='71' />
+<connector enr2='79' enr1='75' />
+<connector enr2='106' name1='TOES' />
+<connector enr2='27' enr1='102' />
+<connector enr2='62' enr1='78' />
+<connector enr2='156' enr1='155' />
+<connector enr2='141' enr1='128' />
+<connector enr1='78' name2='TE2' />
+<connector enr1='106' name2='TOES' />
+<connector enr2='100' enr1='84' />
+<connector enr1='117' name2='TE21' />
+<connector enr1='79' name2='TE2' />
+<connector enr2='176' enr1='96' />
+<connector enr2='98' enr1='94' />
+<connector enr2='104' enr1='89' />
+<connector enr2='159' enr1='156' />
+<connector enr2='79' name1='TE2' />
+<connector enr2='129' enr1='144' />
+<connector enr2='63' enr1='62' />
+<connector enr2='121' enr1='79' />
+<connector enr2='23' enr1='68' />
+<connector enr2='68' enr1='3' />
+<connector enr2='95' enr1='108' />
+<connector enr2='100' enr1='85' />
+<connector enr2='94' enr1='96' />
+<connector enr2='79' enr1='63' />
+<connector enr2='107' enr1='106' />
+<connector enr2='135' enr1='156' />
+<connector enr2='160' enr1='159' />
+<connector enr2='23' enr1='69' />
+<connector enr2='22' enr1='73' />
+<connector enr2='112' enr1='68' />
+<connector enr1='107' name2='TOES' />
+<connector enr2='161' enr1='160' />
+<connector enr2='107' name1='TOES' />
+<connector enr2='104' enr1='81' />
+<connector enr2='98' enr1='87' />
+<connector enr2='113' enr1='112' />
+<connector enr2='73' enr1='88' />
+<connector enr2='90' enr1='161' />
+<connector enr2='69' enr1='113' />
+<connector enr2='90' name1='TE7' />
+</wege>

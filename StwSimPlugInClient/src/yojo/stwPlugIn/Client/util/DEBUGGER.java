@@ -1,5 +1,9 @@
 package yojo.stwPlugIn.Client.util;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class DEBUGGER {
@@ -15,9 +19,15 @@ public class DEBUGGER {
 			System.out.println(string);
 	}
 	
-	public static void printLog() {
-		for(String s : log) {
-			System.out.println(s);
+	public static void printLog(OutputStream out) {
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
+		try {
+			for(String s : log) {
+				writer.write(s);
+				writer.flush();
+			}			
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
