@@ -49,6 +49,11 @@ public class Token {
 				}
 				tokens.add(SLASH);
 				break;
+			case ' ':
+				if(strBuilder.length() != 0) {
+					tokens.add(new Token(strBuilder.toString()));
+					strBuilder= new StringBuilder();
+				}
 			default:
 				strBuilder.append(c);
 				break;
