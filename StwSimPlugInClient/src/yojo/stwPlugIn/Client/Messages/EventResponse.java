@@ -5,14 +5,20 @@ import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
 public class EventResponse extends ResponseMessage{
 
-	public final int trainId;
 	public final EventType type;
 	public final TrainDetailsResponse details;
 	
-	public EventResponse(String raw, int trainId, EventType type, TrainDetailsResponse details) {
-		super(ResponseType.Event, raw);
-		this.trainId = trainId;
+	public EventResponse(EventType type, TrainDetailsResponse details) {
+		super(ResponseType.Event);
 		this.type = type;
 		this.details = details;
+	}
+
+	@Override
+	public String toString() {
+		return "<ereignis zid='" + details.trainId + "' art='" + type.name() + "' name='" + details.name
+				+ "' verspaetung='" + details.delay + "' gleis='" + details.plattform + "' plangleis='" 
+				+ details.regularPlattform + "' von='" + details.source + "' nach='" + details.destination
+				+ "' sichtbar='" + details.visible + "' amgleis='" + details.atPlattform + "' />";
 	}
 }

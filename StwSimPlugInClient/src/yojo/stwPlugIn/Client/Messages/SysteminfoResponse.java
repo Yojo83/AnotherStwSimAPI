@@ -11,13 +11,20 @@ public class SysteminfoResponse extends ResponseMessage {
 	public final String region;
 	
 	
-	public SysteminfoResponse(String raw, int systemId, String region, boolean online, String name, String build) {
-		super(ResponseType.Systeminfo, raw);
+	public SysteminfoResponse(int systemId, String region, boolean online, String name, String build) {
+		super(ResponseType.Systeminfo);
 		this.systemId = systemId;
 		this.build = build;
 		this.name = name;
 		this.online = online;
 		this.region = region;
+	}
+
+
+	@Override
+	public String toString() {
+		return "<anlageninfo simbuild='" + build + "' name='" + name + "' online='" + online
+				+ "' region='" + region + "' aid='" + systemId + "' />";
 	}
 
 }

@@ -12,5 +12,6 @@ public enum ResponseType {
 	Structure,
 	FsSet,
 	EnrFromElement,
-	ElementFromEnr;
+	ElementFromEnr,
+	Raw;
 }

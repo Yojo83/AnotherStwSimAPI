@@ -62,23 +62,29 @@ public class Token {
 		return tokens.toArray(new Token[tokens.size()]);
 	}
 
-	public static final Token START = new Token();
-	public static final Token END = new Token();
-	public static final Token SLASH = new Token();
-	public static final Token EQUAL = new Token();
+	public static final Token START = new Token('<');
+	public static final Token END = new Token('>');
+	public static final Token SLASH = new Token('/');
+	public static final Token EQUAL = new Token('=');
 	
 	public final String value;
+	public final String typeName;
 	
-	private Token() {
+	private Token(char type) {
 		value = null;
+		typeName = type + "";
 	}
 	
 	private Token(String value) {
 		this.value = value;
+		this.typeName = null;
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return value == null ? typeName : value;
+	}
 	
 	
 }

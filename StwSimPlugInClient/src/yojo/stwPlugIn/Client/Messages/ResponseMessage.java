@@ -2,22 +2,18 @@ package yojo.stwPlugIn.Client.Messages;
 
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
-public class ResponseMessage {
+public abstract class ResponseMessage {
 
 	
 	public final ResponseType type;
-	public final String raw;
 	
-	public ResponseMessage(ResponseType type, String raw) {
+	public ResponseMessage(ResponseType type) {
 		this.type = type;
-		this.raw = raw;
 	}
 	
 	
 	@Override
-	public String toString() {
-		return raw;
-	}
+	public abstract String toString();
 	
 	
 	

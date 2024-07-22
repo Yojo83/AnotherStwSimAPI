@@ -12,4 +12,9 @@ public class Shape {
 		this.name = name;
 		this.type = type;
 	}
+	
+	@Override
+	public String toString() {
+		return "<shape name='" + name + "' enr='" + enr + "' type='" + type.name() + "' />";
+	}
 }

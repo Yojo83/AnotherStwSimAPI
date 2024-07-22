@@ -17,11 +17,11 @@ public class TrainDetailsResponse extends ResponseMessage {
 	public final String userText;
 	public final String userTextSender;
 	
-	public TrainDetailsResponse(String raw, int trainId, String name, int delay, 
+	public TrainDetailsResponse(int trainId, String name, int delay, 
 			boolean atPlattform, String plattform, String regularPlattform, 
 			String destination, String source, 
 			boolean visible, String userText, String userTextSender) {
-		super(ResponseType.Traindetails, raw);
+		super(ResponseType.Traindetails);
 		this.trainId = trainId;
 		this.name = name;
 		this.delay = delay;
@@ -34,6 +34,14 @@ public class TrainDetailsResponse extends ResponseMessage {
 		this.userText = userText;
 		this.userTextSender = userTextSender;
 		
+	}
+
+	@Override
+	public String toString() {
+		return "<zugdetails usertextsender='" + userTextSender + "' zid='" + trainId + "' verspaetung='" 
+				+ delay + "' gleis='" + plattform + "' amgleis='" + atPlattform + "' von='" + source 
+				+ "' usertext='" + userText + "' name='" + name + "' nach='" + destination 
+				+ "' plangleis='" + regularPlattform + "' sichtbar='" + visible + "' />";
 	}
 	
 }

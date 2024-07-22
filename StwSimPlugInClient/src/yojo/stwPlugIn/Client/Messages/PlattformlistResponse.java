@@ -11,9 +11,22 @@ public class PlattformlistResponse extends ResponseMessage{
 	
 	public final List<PlattformData> plattforms;
 	
-	public PlattformlistResponse(String raw, List<PlattformData> plattforms) {
-		super(ResponseType.Plattformlist, raw);
+	public PlattformlistResponse(List<PlattformData> plattforms) {
+		super(ResponseType.Plattformlist);
 		this.plattforms = Collections.unmodifiableList(plattforms);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		str.append("<bahnsteigliste >");
+		
+		for(PlattformData p : plattforms) {
+			str.append(p.toString());
+		}
+
+		str.append("</bahnsteigliste>");
+		return str.toString();
 	}
 	
 }

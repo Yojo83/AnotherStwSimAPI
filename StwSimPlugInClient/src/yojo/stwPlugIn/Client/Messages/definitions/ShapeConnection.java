@@ -10,4 +10,9 @@ public class ShapeConnection {
 		this.enr1 = enr1;
 		this.enr2 = enr2;
 	}
+	
+	@Override
+	public String toString() {
+		return "<connector enr1='" + enr1 + "' enr2='" + enr2 + "' />";
+	}
 }

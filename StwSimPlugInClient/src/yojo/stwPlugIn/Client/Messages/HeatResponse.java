@@ -6,8 +6,13 @@ public class HeatResponse extends ResponseMessage {
 
 	public final long heat;
 	
-	public HeatResponse(String raw, long heat) {
-		super(ResponseType.Heat, raw);
+	public HeatResponse(long heat) {
+		super(ResponseType.Heat);
 		this.heat = heat;
+	}
+
+	@Override
+	public String toString() {
+		return "<hitze hitze='" + heat + "' />";
 	}
 }
