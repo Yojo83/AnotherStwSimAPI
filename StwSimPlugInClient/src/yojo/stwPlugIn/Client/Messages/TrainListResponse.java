@@ -1,5 +1,6 @@
 package yojo.stwPlugIn.Client.Messages;
 
+import java.util.Collections;
 import java.util.Map;
 
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
@@ -10,7 +11,7 @@ public class TrainListResponse extends ResponseMessage {
 	
 	public TrainListResponse(Map<Integer, String> trains) {
 		super(ResponseType.Trainlist);
-		this.trains = trains;
+		this.trains = Collections.unmodifiableMap(trains);
 	}
 
 	@Override

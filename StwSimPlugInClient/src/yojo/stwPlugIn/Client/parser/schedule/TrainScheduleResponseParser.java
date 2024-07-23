@@ -1,6 +1,6 @@
 package yojo.stwPlugIn.Client.parser.schedule;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import yojo.stwPlugIn.Client.Messages.TrainScheduleResponse;
 import yojo.stwPlugIn.Client.Messages.definitions.ScheduleEntry;
@@ -11,10 +11,10 @@ import yojo.stwPlugIn.Client.util.ResponseListener;
 
 public class TrainScheduleResponseParser implements ResponseParser {
 
-	private PlattformParser parser;
+	private ScheduleEntryParser parser;
 	
 	private int trainId;
-	private List<ScheduleEntry> entrys;
+	private ArrayList<ScheduleEntry> entrys = new ArrayList<>();;
 	
 	private boolean isFinished = false;
 	private State state = State.ReadZid;
@@ -64,7 +64,7 @@ public class TrainScheduleResponseParser implements ResponseParser {
 			}
 			if("gleis".equals(t.value)) {
 				state = State.ReadPlattform;
-				parser = new PlattformParser();
+				parser = new ScheduleEntryParser();
 				break;
 			}
 			throw new ParserException("Expected / or gleis", t);

@@ -6,7 +6,7 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.TimeManager;
 
-public class PlattformParser {
+public class ScheduleEntryParser {
 	
 	
 	private String plattform;
