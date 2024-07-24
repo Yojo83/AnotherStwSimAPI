@@ -2,7 +2,6 @@ package yojo.stwPlugIn.Client.parser.misc;
 
 import yojo.stwPlugIn.Client.Messages.FsSetResponse;
 import yojo.stwPlugIn.Client.Messages.definitions.FsSetResult;
-import yojo.stwPlugIn.Client.Messages.definitions.ShapeConnection;
 import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
@@ -21,7 +20,7 @@ public class FsSetResponseParser extends MiscParser {
 	
 	@Override
 	protected void doAction(ResponseListener responseListener, Token t) throws ParserException {
-		responseListener.onFsSet(new FsSetResponse(new ShapeConnection(enr1, enr2), result));
+		responseListener.onFsSet(new FsSetResponse(enr1, enr2, result));
 	}
 
 	@Override

@@ -60,10 +60,10 @@ public class ScheduleEntryParser {
 	private void setValue(ExpectedValue ev, String value, Token t) throws ParserException {
 		switch (ev) {
 		case Arrival:
-			arrival = TimeManager.toLong(value);
+			arrival = TimeManager.toLong(value, t);
 			break;
 		case Departure:
-			departure = TimeManager.toLong(value);
+			departure = TimeManager.toLong(value, t);
 			break;
 		case Flags:
 			flags = new FlagData(value);

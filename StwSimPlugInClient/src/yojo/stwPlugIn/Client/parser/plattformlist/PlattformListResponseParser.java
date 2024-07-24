@@ -47,7 +47,7 @@ public class PlattformListResponseParser implements ResponseParser {
 			}
 			throw new ParserException("expected / or bahnsteig", t);
 		case ReadPlattform:
-			parser.parse(t);
+			parser.parse(t, responseListener);
 			if(t == Token.END && parser.isFinished()) {
 				entrys.add(parser.getEntry());
 				state = State.ReadNewXml;

@@ -1,18 +1,20 @@
 package yojo.stwPlugIn.Client.Messages.definitions;
 
+import yojo.stwPlugIn.Client.Messages.definitions.Shapes.Shape;
+
 public class ShapeConnection {
 
 	
-	public final int enr1;
-	public final int enr2;
+	public final Shape shape1;
+	public final Shape shape2;
 	
-	public ShapeConnection(int enr1, int enr2) {
-		this.enr1 = enr1;
-		this.enr2 = enr2;
+	public ShapeConnection(Shape shape1, Shape shape2) {
+		this.shape1 = shape1;
+		this.shape2 = shape2;
 	}
 	
 	@Override
 	public String toString() {
-		return "<connector enr1='" + enr1 + "' enr2='" + enr2 + "' />";
+		return "<connector shape1='" + shape1 + "' shape2='" + shape2 + "' />";
 	}
 }

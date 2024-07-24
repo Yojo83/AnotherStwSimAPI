@@ -2,23 +2,24 @@ package yojo.stwPlugIn.Client.Messages;
 
 import yojo.stwPlugIn.Client.Messages.definitions.FsSetResult;
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
-import yojo.stwPlugIn.Client.Messages.definitions.ShapeConnection;
 
 public class FsSetResponse extends ResponseMessage{
 
-	public final ShapeConnection signals;
+	public final int enr1;
+	public final int enr2;
 	public final FsSetResult result;
 	
-	public FsSetResponse(ShapeConnection signals, FsSetResult result) {
+	public FsSetResponse(int enr1, int enr2, FsSetResult result) {
 		super(ResponseType.FsSet);
-		this.signals = signals;
+		this.enr1 = enr1;
+		this.enr2 = enr2;
 		this.result = result;
 	}
 
 
 	@Override
 	public String toString() {
-		return "<fsset result='" + result.name() + "' stop='" + signals.enr1 + "' start='" + signals.enr2 + "' />";
+		return "<fsset result='" + result.name() + "' stop='" + enr1 + "' start='" + enr2 + "' />";
 	}
 	
 	

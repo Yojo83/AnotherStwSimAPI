@@ -4,6 +4,7 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.*;
 import yojo.stwPlugIn.Client.parser.plattformlist.PlattformListResponseParser;
 import yojo.stwPlugIn.Client.parser.schedule.TrainScheduleResponseParser;
+import yojo.stwPlugIn.Client.parser.structure.StructureResponseParser;
 import yojo.stwPlugIn.Client.parser.trainlist.TrainListResponseParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
