@@ -20,7 +20,7 @@ public class TrainListResponse extends ResponseMessage {
 		str.append("<zugliste >\n");
 		
 		trains.forEach((tid, name) -> {
-			str.append("<zug zid='" + tid + "' name='" + name + "' />");
+			str.append("<zug zid='" + tid + "' name='" + name + "' />\n");
 		});
 		
 		str.append("</zugliste>");

@@ -25,11 +25,11 @@ public class StructureResponse extends ResponseMessage {
 		str.append("<wege >");
 		
 		shapes.foreach(shape -> {
-			str.append(shape.toString());
+			str.append(shape.toString() + "\n");
 		});
 		
 		for(ShapeConnection c : connections) {
-			str.append(c.toString());
+			str.append(c.toString() + "\n");
 		}
 		
 		str.append("</wege>");

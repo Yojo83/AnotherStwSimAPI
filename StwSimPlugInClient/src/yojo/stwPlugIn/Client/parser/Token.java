@@ -12,6 +12,10 @@ public class Token {
 		
 		for(char c : line.toCharArray()) {
 			if(c == '"' || c == '\'') {
+				if(isString) {
+					tokens.add(new Token(strBuilder.toString()));
+					strBuilder = new StringBuilder();
+				}
 				isString = !isString;
 				continue;
 			}
@@ -54,6 +58,7 @@ public class Token {
 					tokens.add(new Token(strBuilder.toString()));
 					strBuilder= new StringBuilder();
 				}
+				break;
 			default:
 				strBuilder.append(c);
 				break;

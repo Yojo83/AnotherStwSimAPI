@@ -31,7 +31,7 @@ public class StructureResponseParser implements ResponseParser {
 
 	private ArrayList<ShapeConnection> connections = new ArrayList<>();	
 	
-	private State state;
+	private State state = State.ExpectFirstEnd;
 	
 	@Override
 	public boolean isFinished() {

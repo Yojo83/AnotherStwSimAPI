@@ -29,6 +29,7 @@ public class SocketManager extends Thread {
 	
 	public void close() throws IOException {
 		socket.shutdownInput();
+		socket.close();
 	}
 	
 	public void sendMessage(String xmlMsg) throws IOException {

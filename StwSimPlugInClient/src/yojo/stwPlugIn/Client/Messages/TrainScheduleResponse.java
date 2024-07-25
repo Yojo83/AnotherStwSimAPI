@@ -23,7 +23,7 @@ public class TrainScheduleResponse extends ResponseMessage {
 		StringBuilder str = new StringBuilder();
 		str.append("<zugfahrplan zid='" + trainId + "' >");
 		for(ScheduleEntry entry : scheduleList) {
-			str.append(entry.toString());
+			str.append(entry.toString() + "\n");
 		}
 		str.append("</zugfahrplan>");
 		return str.toString();

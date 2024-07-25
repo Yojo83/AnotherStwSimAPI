@@ -1,12 +1,18 @@
 package yojo.stwPlugIn.Client.Messages.definitions;
 
 public enum EventType {
-	Departure,
-	Arrival,
-	Exit,
-	Entrance,
-	Split,
-	Combine,
-	RedStop,
-	GotGreen;
+	Departure("abfahrt"),
+	Arrival("ankunft"),
+	Exit("ausfahrt"),
+	Entrance("einfahrt"),
+	Split("fluegeln"),
+	Combine("kuppeln"),
+	RedStop("rothalt"),
+	GotGreen("wurdegruen");
+	
+	public final String forXml;
+	
+	private EventType(String xml) {
+		forXml = xml;
+	}
 }

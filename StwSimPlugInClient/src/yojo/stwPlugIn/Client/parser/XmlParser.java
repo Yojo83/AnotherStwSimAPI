@@ -15,6 +15,7 @@ public class XmlParser {
 		} catch (ParserException e) {
 			DEBUGGER.log("Error at Token " + e.token.toString() + " in Message: " + line + ": " + e.msg);
 			responseListener.unhandeledMessage(new RawMessage(line));
+			state = null;
 		}
 	}
 	

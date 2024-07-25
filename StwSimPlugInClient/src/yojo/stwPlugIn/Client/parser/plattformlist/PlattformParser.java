@@ -1,6 +1,6 @@
 package yojo.stwPlugIn.Client.parser.plattformlist;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import yojo.stwPlugIn.Client.Messages.definitions.PlattformData;
 import yojo.stwPlugIn.Client.parser.Token;
@@ -13,7 +13,7 @@ public class PlattformParser {
 	
 	private String name;
 	private boolean stop;
-	private List<String> neighbours;
+	private ArrayList<String> neighbours = new ArrayList<>();
 	
 	private State state = State.ExpectType;
 	private boolean expectName;
@@ -66,6 +66,7 @@ public class PlattformParser {
 			}
 			if("n".equals(t.value)) {
 				state = State.ReadNeighbour;
+				parser = new NeighbourParser();
 				break;
 			}
 			throw new ParserException("Expected / or n", t);
@@ -77,7 +78,7 @@ public class PlattformParser {
 			}
 			break;
 		case ExpectBahnsteig:
-			if("bahnsteig".equals(t.value))
+			if(!"bahnsteig".equals(t.value))
 				throw new ParserException("Expected bahnsteig", t);
 			state = State.ExpectEnd;
 			break;

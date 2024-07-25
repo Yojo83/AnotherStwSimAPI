@@ -33,7 +33,7 @@ public class PlattformListResponseParser implements ResponseParser {
 		case ReadNewXml:
 			if(t != Token.START)
 				throw new ParserException("expected <", t);
-			state = State.ReadNewXml;
+			state = State.ReadXmlIdentifier;
 			break;
 		case ReadXmlIdentifier:
 			if(t == Token.SLASH) {
@@ -56,6 +56,7 @@ public class PlattformListResponseParser implements ResponseParser {
 		case ReadBahnsteigListe:
 			if(!"bahnsteigliste".equals(t.value))
 				throw new ParserException("expected bahnsteigliste", t);
+			state = State.ReadSecondEnd;
 			break;
 		case ReadSecondEnd:
 			if(t != Token.END)

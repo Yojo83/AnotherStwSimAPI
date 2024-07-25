@@ -62,6 +62,8 @@ public class MessageTree {
 		case "bahnsteigliste":
 			parser = new PlattformListResponseParser();
 			break;
+		default:
+			throw new ParserException("can't identify message", t);	
 		}
 	}
 

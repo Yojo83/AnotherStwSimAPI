@@ -44,6 +44,7 @@ public abstract class MiscParser implements ResponseParser {
 			if(t == Token.END) {
 				finished = true;
 				doAction(responseListener, t);
+				break;
 			}
 			throw new ParserException("Expected >", t);
 		default:

@@ -19,10 +19,10 @@ public class PlattformlistResponse extends ResponseMessage{
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		str.append("<bahnsteigliste >");
+		str.append("<bahnsteigliste >\n");
 		
 		for(PlattformData p : plattforms) {
-			str.append(p.toString());
+			str.append(p.toString() + "\n");
 		}
 
 		str.append("</bahnsteigliste>");

@@ -40,7 +40,7 @@ public class TrainListResponseParser implements ResponseParser {
 				state = State.ReadZugliste;
 				break;
 			}
-			if("gleis".equals(t.value)) {
+			if("zug".equals(t.value)) {
 				state = State.ReadTrain;
 				parser = new TrainParser();
 				break;
