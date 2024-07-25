@@ -49,6 +49,7 @@ public class SocketManager extends Thread {
 		} catch (IOException e) {
 			DEBUGGER.log("Error at reading socket line");
 		}
+		listenerSupplier.get().onClose();
 		DEBUGGER.log("Stopt reading the Socket");
 	}
 

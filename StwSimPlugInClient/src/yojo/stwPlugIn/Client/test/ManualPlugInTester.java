@@ -62,7 +62,7 @@ public class ManualPlugInTester {
 		case "trains":
 			client.requestTrainList();
 			break;
-		case "plattforms"://redo
+		case "plattforms":
 			client.requestPlattformList();
 			break;
 		case "system":
