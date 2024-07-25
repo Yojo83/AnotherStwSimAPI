@@ -21,7 +21,7 @@ client.connect();
 
 now your client is connected to your game. At least if there is one, else there is an IO Exception thrown.
 
-You can also define the host in the ```Java connect(String host)``` method.
+You can also define the host in the ```connect(String host)``` method.
 
 Additonally the Lib has a DEBUGGER. In debug mode it print all debug statements in the console, and with printLog it prints all debug statements to an OutputStream.
 
