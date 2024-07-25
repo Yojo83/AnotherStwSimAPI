@@ -126,6 +126,9 @@ public class ManualPlugInTester {
 				}
 			}
 			break;
+		case "time":
+			client.requestSimTime();
+			break;
 		default:
 			client.sendMessageRaw(line + "\n");	
 		}

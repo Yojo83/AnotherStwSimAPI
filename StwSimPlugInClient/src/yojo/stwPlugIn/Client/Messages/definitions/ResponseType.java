@@ -13,5 +13,6 @@ public enum ResponseType {
 	FsSet,
 	EnrFromElement,
 	ElementFromEnr,
+	Time,
 	Raw;
 }

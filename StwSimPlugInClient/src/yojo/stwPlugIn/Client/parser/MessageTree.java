@@ -62,6 +62,9 @@ public class MessageTree {
 		case "bahnsteigliste":
 			parser = new PlattformListResponseParser();
 			break;
+		case "simzeit":
+			parser = new TimeResponseParser();
+			break;
 		default:
 			throw new ParserException("can't identify message", t);	
 		}

@@ -105,5 +105,9 @@ public class PlugInClient {
 		sendMessageRaw("<anlageninfo />\n");
 	}
 	
+	public void requestSimTime() throws IOException{
+		sendMessageRaw("<simzeit sender='0' />\n");
+	}
+	
 	
 }

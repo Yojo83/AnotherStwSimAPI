@@ -62,4 +62,8 @@ public class ResponseListener {
 		unhandeledMessage(msg);
 	}
 	
+	public void onTime(TimeResponse msg) {
+		unhandeledMessage(msg);
+	}
+	
 }
