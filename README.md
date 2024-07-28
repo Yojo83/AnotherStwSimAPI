@@ -123,4 +123,8 @@ I know there are other APIs for this meaning out there, but there not up to date
 ### contribution
 
 this code is far away from perfect, also if the infeace updates this will leaf some legacy. 
-You are invited to make Issues or branches to improve on this code.
+You are invited to participate in this code with idears and implementations.
+
+### further disclaimer
+
+this my first public repo, so if anythings weird, missing or something, please reach out to me. I want to improve
