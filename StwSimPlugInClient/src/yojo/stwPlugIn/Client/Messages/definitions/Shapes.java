@@ -67,6 +67,8 @@ public class Shapes {
 			this.type = type;
 		}
 		
+		public abstract String getName();
+		
 		@Override
 		public abstract String toString();
 	}
@@ -86,6 +88,11 @@ public class Shapes {
 		public String toString() {
 			return "<shape name='" + name + "' type='" + (isStop ? "12" : "5") + "' />";
 		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
 		
 	}
 	
@@ -104,6 +111,11 @@ public class Shapes {
 		public String toString() {
 			return "<shape name='" + name + "' enr='" + enr + "' type='6' />";
 		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
 	}
 	
 	public static class Exit extends Shape {
@@ -121,6 +133,11 @@ public class Shapes {
 		public String toString() {
 			return "<shape name='" + name + "' enr='" + enr + "' type='7' />";
 		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
 	}
 
 	public static class Signal extends Shape {
@@ -137,6 +154,11 @@ public class Shapes {
 		@Override
 		public String toString() {
 			return "<shape name='" + name + "' enr='" + enr + "' type='2' />";
+		}
+
+		@Override
+		public String getName() {
+			return name;
 		}
 	}
 	
@@ -156,6 +178,11 @@ public class Shapes {
 		@Override
 		public String toString() {
 			return "<shape name='" + name + "' enr='" + enr + "' type='" + (isUp ? "4" : "3") + "' />";
+		}
+
+		@Override
+		public String getName() {
+			return name;
 		}
 	}
 	
