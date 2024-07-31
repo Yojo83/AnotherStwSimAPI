@@ -38,7 +38,7 @@ public class ScheduleEntryParser {
 		case EXPECT_VALUE:
 			if(t.value == null)
 				throw new ParserException("Expected string but didn't found it", t);
-			setValue(expecVal, t.value, t);
+			setValue(expecVal, t);
 			state = State.NULL;
 			break;
 		case NULL:
@@ -57,22 +57,22 @@ public class ScheduleEntryParser {
 		}
 	}
 
-	private void setValue(ExpectedValue ev, String value, Token t) throws ParserException {
+	private void setValue(ExpectedValue ev, Token t) throws ParserException {
 		switch (ev) {
 		case Arrival:
-			arrival = TimeManager.toLong(value, t);
+			arrival = TimeManager.toLong(t);
 			break;
 		case Departure:
-			departure = TimeManager.toLong(value, t);
+			departure = TimeManager.toLong(t);
 			break;
 		case Flags:
-			flags = new FlagData(value);
+			flags = new FlagData(t.value);
 			break;
 		case Plattform:
-			plattform = value;
+			plattform = t.value;
 			break;
 		case RegularPlattform:
-			regularPlattform = value;
+			regularPlattform = t.value;
 			break;
 		default:
 			throw new ParserException("internal (impossible) error", t);

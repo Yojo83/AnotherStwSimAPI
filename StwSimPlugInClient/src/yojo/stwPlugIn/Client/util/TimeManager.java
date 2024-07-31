@@ -5,8 +5,14 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 
 public class TimeManager {
 
-	public static long toLong(String value, Token t) throws ParserException {
-		String[] args = value.split(":");
+	/**
+	 * 
+	 * @param t the token with a time value in form of hh:mm
+	 * @return the miliseconds since 00:00 of the time
+	 * @throws ParserException if the there are no or too many :, or hh or mm is not an integer
+	 */
+	public static long toLong(Token t) throws ParserException {
+		String[] args = t.value.split(":");
 		if(args.length != 2)
 			throw new ParserException("wrong time format; expected hh:mm", t);
 		int hours, mins;

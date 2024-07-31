@@ -13,12 +13,33 @@ import yojo.stwPlugIn.Client.parser.XmlParser;
 public class SocketManager extends Thread {
 
 
+	/**
+	 * the TCP Socket connected to the game
+	 */
 	private final Socket socket;
+	/**
+	 * a BufferedReader from the InputStream of the Socket, used to read messages from the game
+	 */
 	private final BufferedReader reader;
+	/**
+	 * a BufferedWriter from the OutputStream of the Socket. Used to send messages to the game
+	 */
 	private final BufferedWriter writer;
+	/**
+	 * a Supplier method for getting the current listener
+	 */
 	private final Supplier<ResponseListener> listenerSupplier;
+	/**
+	 * a Parser to parse the raw xml messages from the game and (if finished) execute on a listener
+	 */
 	private final XmlParser parser;
 	
+	/**
+	 * creates a new SocketManager. Also directly connects to the host
+	 * @param host the url, the tcp connection searches the game
+	 * @param listenerSupplier a supplier method for getting the current listener
+	 * @throws IOException propagated from the raw-socket
+	 */
 	public SocketManager(String host, Supplier<ResponseListener> listenerSupplier) throws IOException {
 		socket = new Socket(host, 3691);
 		reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -27,17 +48,29 @@ public class SocketManager extends Thread {
 		this.parser = new XmlParser();
 	}
 	
+	/**
+	 * closes the socket
+	 * @throws IOException
+	 */
 	public void close() throws IOException {
 		socket.shutdownInput();
 		socket.close();
 	}
 	
+	/**
+	 * sends a message and logs it
+	 * @param xmlMsg the message send in raw xml
+	 * @throws IOException
+	 */
 	public void sendMessage(String xmlMsg) throws IOException {
 		writer.write(xmlMsg);
 		writer.flush();
 		DEBUGGER.log("send Message: " + xmlMsg);
 	}
 	
+	/**
+	 * reads the socket and handles the messages through the current listener
+	 */
 	@Override
 	public void run() {
 		String line;

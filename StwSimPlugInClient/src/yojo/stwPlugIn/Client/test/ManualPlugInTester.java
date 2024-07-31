@@ -11,6 +11,11 @@ import yojo.stwPlugIn.Client.util.DEBUGGER;
 public class ManualPlugInTester {
 	
 	
+	/**
+	 * starts the not further documented test client, that sends basic commands to the game and activates the debug mode.
+	 * Therefore printing all received messages to the console
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		DEBUGGER.debugMode = true;
 		PlugInClient client = new PlugInClient("ManualTester", "Yojo", "1.0", "lets a person test the xml connection");
@@ -46,7 +51,12 @@ public class ManualPlugInTester {
 		System.out.println("Main Thread ended");
 	}
 
-	
+	/**
+	 * sends a message depending on the command send or the raw message if no command is found
+	 * @param client the stwclient
+	 * @param line the command to send
+	 * @throws IOException
+	 */
 	private static void sendCommand(PlugInClient client, String line) throws IOException {
 		String[] args = line.split(" ");
 		switch(args[0]) {

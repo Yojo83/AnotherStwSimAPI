@@ -7,11 +7,25 @@ import yojo.stwPlugIn.Client.util.DEBUGGER;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 import yojo.stwPlugIn.Client.util.SocketManager;
 
+/**
+ * A Interface for a game Connection. 
+ * Use the various send methods to send messages to the game, and receive answers through the listener.
+ * needs to be connected via the connect method first.
+ */
 public class PlugInClient {
 
+	/**
+	 * the xml message, with witch the client gets registrated to the game
+	 */
 	private final String registrationXml;
 	
+	/**
+	 * a setable listener, that will receive functioncalls, when a message is read
+	 */
 	private ResponseListener listener = new ResponseListener();
+	/**
+	 * The connection to the game, handled by a exchangeable Socket Manager
+	 */
 	private SocketManager readerThread;
 	
 	

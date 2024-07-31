@@ -3,8 +3,16 @@ package yojo.stwPlugIn.Client.parser;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * used for the lexical analysis to sort a raw xml message into tokens
+ */
 public class Token {
 
+	/**
+	 * does the lexical analysis for a given xml line
+	 * @param line
+	 * @return
+	 */
 	public static Token[] toTokenArray(String line) {
 		List<Token> tokens = new ArrayList<>();
 		boolean isString = false;
@@ -67,28 +75,60 @@ public class Token {
 		return tokens.toArray(new Token[tokens.size()]);
 	}
 
+	/**
+	 * a token representing < for xml messages
+	 */
 	public static final Token START = new Token('<');
+	/**
+	 * a token representing > for xml messages
+	 */
 	public static final Token END = new Token('>');
+	/**
+	 * a token representing / for xml messages
+	 */
 	public static final Token SLASH = new Token('/');
+	/**
+	 * a token representing = for xml messages
+	 */
 	public static final Token EQUAL = new Token('=');
 	
-	public final String value;
-	public final String typeName;
 	
+	/**
+	 * the value of a string token
+	 * null if this is not a string token
+	 */
+	public final String value;
+	/**
+	 * a char represented by the token
+	 * ' ' if this is a string token
+	 */
+	public final char typeName;
+	
+	/**
+	 * creates a new not string token
+	 * @param type used for toString()
+	 */
 	private Token(char type) {
 		value = null;
-		typeName = type + "";
+		typeName = type;
 	}
 	
+	/**
+	 * creates a new string token
+	 * @param value the string represented by this token
+	 */
 	private Token(String value) {
 		this.value = value;
-		this.typeName = null;
+		this.typeName = ' ';
 	}
 	
-	
+	/**
+	 * returns the string value if its a string token
+	 * and the char represented by this token otherwise
+	 */
 	@Override
 	public String toString() {
-		return value == null ? typeName : value;
+		return value == null ? String.valueOf(typeName) : value;
 	}
 	
 	
