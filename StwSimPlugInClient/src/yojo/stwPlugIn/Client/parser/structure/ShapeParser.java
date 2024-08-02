@@ -14,6 +14,11 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.MiscParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses one shape
+ * @author Yojo
+ *
+ */
 public class ShapeParser extends MiscParser {
 
 

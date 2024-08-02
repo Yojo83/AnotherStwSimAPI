@@ -6,6 +6,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.TimeManager;
 
+/**
+ * parses one schedule entry
+ * @author Yojo
+ *
+ */
 public class ScheduleEntryParser {
 	
 	

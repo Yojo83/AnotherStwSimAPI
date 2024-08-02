@@ -5,6 +5,11 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.MiscParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses one neightbour of plattforms
+ * @author Yojo
+ *
+ */
 public class NeighbourParser extends MiscParser {
 
 	public String value;

@@ -7,6 +7,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses one plattform of the plattform list
+ * @author Yojo
+ *
+ */
 public class PlattformParser {
 
 	private NeighbourParser parser;

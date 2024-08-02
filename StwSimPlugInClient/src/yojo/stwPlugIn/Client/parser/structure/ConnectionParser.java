@@ -10,6 +10,11 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.MiscParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses one connector
+ * @author Yojo
+ *
+ */
 public class ConnectionParser extends MiscParser {
 	
 	

@@ -5,6 +5,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses the train details message
+ * @author Yojo
+ *
+ */
 public class TrainDetailsResponseParser extends MiscParser {
 
 	private int trainId;

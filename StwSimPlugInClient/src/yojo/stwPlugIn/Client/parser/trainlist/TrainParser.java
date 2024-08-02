@@ -5,11 +5,27 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.MiscParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses one line of the train list
+ * @author Yojo
+ *
+ */
 public class TrainParser extends MiscParser {
 
+	/**
+	 * the trainId of the train
+	 * can be 0, before finished or if the message doesn't specify one
+	 */
 	public int tid;
+	/**
+	 * the name of the train
+	 * can be null, before finished or if the message doesn't specify one
+	 */
 	public String name;
 	
+	/**
+	 * is the next value the name?
+	 */
 	private boolean expectName;
 	
 

@@ -8,6 +8,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses the train list message
+ * @author Yojo
+ *
+ */
 public class TrainListResponseParser implements ResponseParser {
 
 	private TrainParser parser;

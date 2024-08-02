@@ -6,6 +6,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses a fsset message
+ * @author Yojo
+ *
+ */
 public class FsSetResponseParser extends MiscParser {
 
 	

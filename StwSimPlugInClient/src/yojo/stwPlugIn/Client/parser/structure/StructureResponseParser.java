@@ -18,6 +18,11 @@ import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.parser.misc.MiscParser;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses the structure (wege) message
+ * @author Yojo
+ *
+ */
 public class StructureResponseParser implements ResponseParser {
 
 	private MiscParser parser;

@@ -5,6 +5,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses the systeminfo message
+ * @author Yojo
+ *
+ */
 public class SystemInfoResponseParser extends MiscParser {
 
 	private String build;

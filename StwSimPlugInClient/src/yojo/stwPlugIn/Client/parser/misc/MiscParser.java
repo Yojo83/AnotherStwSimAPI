@@ -5,6 +5,14 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * A base class for parsers, parsing one xml block.
+ * This class will search through the xml block, calls setExpectedvalue with the parameter name,
+ * and then setValue with the prameter value. 
+ * At the end of the xml block it calls doAction at set the parser finished
+ * @author Yojo
+ *
+ */
 public abstract class MiscParser implements ResponseParser {
 
 	private boolean finished;

@@ -5,6 +5,11 @@ import yojo.stwPlugIn.Client.parser.Token;
 import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
+/**
+ * parses the element4 message
+ * @author Yojo
+ *
+ */
 public class Element4ResponseParser extends MiscParser {
 
 	private int enr;
