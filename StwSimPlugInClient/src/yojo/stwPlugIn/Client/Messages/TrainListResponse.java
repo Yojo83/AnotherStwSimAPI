@@ -5,8 +5,16 @@ import java.util.Map;
 
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
+/**
+ * The parsed response for the train list request containing all trains with train id and name
+ * @author Yojo
+ *
+ */
 public class TrainListResponse extends ResponseMessage {
 	
+	/**
+	 * An unmodifiable Map of all trains. The train id is mapped onto the name 
+	 */
 	public final Map<Integer, String> trains;
 	
 	public TrainListResponse(Map<Integer, String> trains) {

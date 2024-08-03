@@ -6,10 +6,21 @@ import java.util.List;
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 import yojo.stwPlugIn.Client.Messages.definitions.ScheduleEntry;
 
+/**
+ * The parsed response for the train schedule request containing the train id and schedule entrys
+ * @author Yojo
+ *
+ */
 public class TrainScheduleResponse extends ResponseMessage {
 
-	
+	/**
+	 * a unmodifiable list containing the schedule entrys for the train.
+	 * This represents the future way of the train
+	 */
 	public final List<ScheduleEntry> scheduleList;
+	/**
+	 * the train id, this schedule is linked to
+	 */
 	public final int trainId;
 	
 	public TrainScheduleResponse(int trainId, List<ScheduleEntry> scheduleList) {

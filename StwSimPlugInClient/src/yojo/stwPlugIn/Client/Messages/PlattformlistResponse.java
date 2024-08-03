@@ -6,9 +6,16 @@ import java.util.List;
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 import yojo.stwPlugIn.Client.Messages.definitions.PlattformData;
 
+/**
+ * The parsed response for the platform list request containing all platforms
+ * @author Yojo
+ *
+ */
 public class PlattformlistResponse extends ResponseMessage{
 	
-	
+	/**
+	 * An unmodifiable list of all plattforms
+	 */
 	public final List<PlattformData> plattforms;
 	
 	public PlattformlistResponse(List<PlattformData> plattforms) {

@@ -2,9 +2,13 @@ package yojo.stwPlugIn.Client.Messages.definitions;
 
 import yojo.stwPlugIn.Client.Messages.definitions.Shapes.Shape;
 
+/**
+ * this represents one connection between two shapes
+ * @author Yojo
+ *
+ */
 public class ShapeConnection {
 
-	
 	public final Shape shape1;
 	public final Shape shape2;
 	

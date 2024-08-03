@@ -7,10 +7,21 @@ import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 import yojo.stwPlugIn.Client.Messages.definitions.ShapeConnection;
 import yojo.stwPlugIn.Client.Messages.definitions.Shapes;
 
+/**
+ * The parsed response for the structure request containing the shapes and connections
+ * @author Yojo
+ *
+ */
 public class StructureResponse extends ResponseMessage {
 
+	/**
+	 * An Object representing all shapes of the signal box
+	 */
 	public final Shapes shapes;
 	
+	/**
+	 * An unmodifiable list with the connections between the Shapes
+	 */
 	public final List<ShapeConnection> connections;
 	
 	public StructureResponse(List<ShapeConnection> connections, Shapes shapes) {

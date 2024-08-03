@@ -2,9 +2,20 @@ package yojo.stwPlugIn.Client.Messages;
 
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
+/**
+ * The parsed response for the stitz reques
+ * @author Yojo
+ *
+ */
 public class StitzResponse extends ResponseMessage {
 
+	/**
+	 * the regional Tel
+	 */
 	public final String regionalTel;
+	/**
+	 * the common Tel
+	 */
 	public final String commonTel;
 	
 	public StitzResponse(String regionalTel, String commonTel) {

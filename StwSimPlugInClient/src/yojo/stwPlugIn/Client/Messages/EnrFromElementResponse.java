@@ -2,9 +2,20 @@ package yojo.stwPlugIn.Client.Messages;
 
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
+/**
+ * The parsed response for the enr4 request
+ * @author Yojo
+ *
+ */
 public class EnrFromElementResponse extends ResponseMessage {
 
+	/**
+	 * the enr for that element
+	 */
 	public final int enr;
+	/**
+	 * the element name from the request
+	 */
 	public final String name;
 	
 	public EnrFromElementResponse(int enr, String name) {
