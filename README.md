@@ -5,7 +5,7 @@ But whats spezial about this API? Its from me and therefore perfekt!
 
 ## Contents
 
-Besides the SourceCode and some overhead this repo has two .jar files. One as a lib and the other as a tester. 
+In all Releases you'll find two .jar files for using this. One as a lib and the other as a tester. 
 The lib has everthing you need to get startet with programming your PlugIn. 
 The Tester on the otherhand additionally consists of a little Programm to test the api connection. 
 You can also extend on it to see how everthing is working.
