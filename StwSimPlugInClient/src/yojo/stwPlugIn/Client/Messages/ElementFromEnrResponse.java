@@ -4,6 +4,7 @@ import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
 /**
  * The parsed response for the element43 request
+ * This Feature is not finished in the sim and may cause troubles.
  * @author Yojo
  *
  */

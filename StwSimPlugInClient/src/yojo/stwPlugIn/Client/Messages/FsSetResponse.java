@@ -4,7 +4,9 @@ import yojo.stwPlugIn.Client.Messages.definitions.FsSetResult;
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
 /**
- * The parsed message for an fsset result. This can be tricky due to inconsistency in the game interface:
+ * The parsed message for an fsset result. 
+ * This Feature is not finished in the sim and may cause troubles.
+ * This can be tricky due to inconsistency in the game interface:
  * If the fs is not possible this message with UNKNOWN is send. 
  * If the fs memory is already filled this message with BUS is send.
  * If the fs will be set in the fs memory, this message will never be send.
