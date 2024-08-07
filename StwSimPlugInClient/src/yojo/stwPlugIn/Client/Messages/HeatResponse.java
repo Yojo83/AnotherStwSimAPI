@@ -3,7 +3,8 @@ package yojo.stwPlugIn.Client.Messages;
 import yojo.stwPlugIn.Client.Messages.definitions.ResponseType;
 
 /**
- * The parsed response for the heat request
+ * The parsed response for the heat request.
+ * This Feature is not finished in the sim and may cause troubles.
  * @author Yojo
  *
  */

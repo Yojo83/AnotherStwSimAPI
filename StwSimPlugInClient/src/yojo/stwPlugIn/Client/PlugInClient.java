@@ -111,7 +111,9 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * request the heat from the game
+	 * request the heat from the game. 
+	 * This Feature is not finished in the sim and may cause troubles.
+	 * The heat value was for an mobile app but has litte to non meaning
 	 * @throws IOException
 	 */
 	public void requestHeat() throws IOException {
@@ -119,7 +121,8 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * request stitz from the game
+	 * request stitz from the game. 
+	 * This given you the numbers of the Regional and "Quassel" Rooms.
 	 * @throws IOException
 	 */
 	public void requestStitz() throws IOException {
@@ -135,7 +138,8 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * requests the element name from an enr
+	 * requests the element name from an enr. 
+	 * This Feature is not finished in the sim and may cause troubles.
 	 * @param enr enr of the requesting element
 	 * @throws IOException
 	 */
@@ -144,7 +148,8 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * requests an enr from an element name
+	 * requests an enr from an element name. 
+	 * This Feature is not finished in the sim and may cause troubles.
 	 * @param element the element name
 	 * @throws IOException
 	 */
@@ -153,7 +158,8 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * requests to set an FS between the two Elements represented by their enr
+	 * requests to set an FS between the two Elements represented by their enr.
+	 * This Feature is not finished in the sim and may cause troubles.
 	 * @param enr1
 	 * @param enr2
 	 * @throws IOException
@@ -163,7 +169,8 @@ public class PlugInClient {
 	}
 	
 	/**
-	 * enables or disables the debug mode of the game
+	 * enables or disables the debug mode of the game.
+	 * This Feature is not finished in the sim and may cause troubles.
 	 * @param enabled
 	 * @throws IOException
 	 */
