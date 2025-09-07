@@ -33,7 +33,8 @@ public class ConnectionParser extends MiscParser {
 
 	@Override
 	protected void doAction(ResponseListener responseListener, Token t) throws ParserException {
-		connections.add(new ShapeConnection(shape1, shape2));
+		if(shape1 != null && shape2 != null)
+			connections.add(new ShapeConnection(shape1, shape2));
 	}
 
 	@Override
@@ -56,13 +57,13 @@ public class ConnectionParser extends MiscParser {
 	protected void setValue(Token t) throws ParserException {
 		if(expectFirst) {
 			shape1 = shapes.get(t.value);
-			if(shape1 == null)
-				throw new ParserException("not a shape enr nor name", t);
+			//if(shape1 == null)
+				//throw new ParserException("not a shape enr nor name", t);
 		}
 		else {
 			shape2 = shapes.get(t.value);
-			if(shape2 == null)
-				throw new ParserException("not a shape enr nor name", t);
+			//if(shape2 == null)
+				//throw new ParserException("not a shape enr nor name", t);
 		}
 	}
 	
