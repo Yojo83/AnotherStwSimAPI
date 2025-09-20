@@ -29,15 +29,20 @@ public class ScheduleEntry {
 	 * the flags set for this platform
 	 */
 	public final FlagData flags;
+	/**
+	 * the advisory text for this plattform
+	 */
+	public final String text;
 	
 	public ScheduleEntry(String plattform, String regularPlattform, 
 			long arrival, long departure, 
-			FlagData flags) {
+			FlagData flags, String text) {
 		this.plattform = plattform;
 		this.regularPlattform = regularPlattform;
 		this.arrival = arrival;
 		this.departure = departure;
 		this.flags = flags;
+		this.text = text;
 	}
 	
 	

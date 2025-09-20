@@ -12,6 +12,9 @@ public class TimeManager {
 	 * @throws ParserException if the there are no or too many :, or hh or mm is not an integer
 	 */
 	public static long toLong(Token t, long emptyValue) throws ParserException {
+		if(t.value.equals(""))
+			return emptyValue;
+		
 		String[] args = t.value.split(":");
 		if(args.length != 2)
 			throw new ParserException("wrong time format; expected hh:mm", t);

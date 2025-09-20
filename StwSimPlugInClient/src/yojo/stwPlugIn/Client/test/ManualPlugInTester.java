@@ -11,6 +11,8 @@ import yojo.stwPlugIn.Client.util.DEBUGGER;
 public class ManualPlugInTester {
 	
 	
+	public static PlugInClient client;
+	
 	/**
 	 * starts the not further documented test client, that sends basic commands to the game and activates the debug mode.
 	 * Therefore printing all received messages to the console
@@ -18,7 +20,7 @@ public class ManualPlugInTester {
 	 */
 	public static void main(String[] args) {
 		DEBUGGER.debugMode = true;
-		PlugInClient client = new PlugInClient("ManualTester", "Yojo", "1.0", "lets a person test the xml connection");
+		client = new PlugInClient("ManualTester", "Yojo", "1.0", "lets a person test the xml connection");
 		try {
 			client.connect();
 		} catch (IOException e) {

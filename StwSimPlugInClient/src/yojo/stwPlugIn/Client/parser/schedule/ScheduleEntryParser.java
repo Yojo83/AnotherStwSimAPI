@@ -19,6 +19,7 @@ public class ScheduleEntryParser {
 	private long arrival;
 	private long departure;
 	private FlagData flags;
+	private String text;
 	
 	
 	private State state = State.NULL;
@@ -30,7 +31,7 @@ public class ScheduleEntryParser {
 	}
 
 	public ScheduleEntry getEntry() {		
-		return new ScheduleEntry(plattform, regularPlattform, arrival, departure, flags);
+		return new ScheduleEntry(plattform, regularPlattform, arrival, departure, flags, text);
 	}
 
 	public void parse(Token t) throws ParserException {
@@ -79,6 +80,9 @@ public class ScheduleEntryParser {
 		case RegularPlattform:
 			regularPlattform = t.value;
 			break;
+		case Text:
+			text = t.value;
+			break;
 		default:
 			throw new ParserException("internal (impossible) error", t);
 		}
@@ -91,6 +95,7 @@ public class ScheduleEntryParser {
 		case "an": return ExpectedValue.Arrival;
 		case "ab": return ExpectedValue.Departure;
 		case "flags": return ExpectedValue.Flags;
+		case "hinweistext": return ExpectedValue.Text;
 		default:
 			throw new ParserException("failed to deduce token to Plattform variable", t);
 		}
@@ -108,7 +113,8 @@ public class ScheduleEntryParser {
 		RegularPlattform,
 		Arrival,
 		Departure,
-		Flags;
+		Flags,
+		Text;
 	}
 
 }
