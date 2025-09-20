@@ -11,7 +11,7 @@ public class TimeManager {
 	 * @return the miliseconds since 00:00 of the time
 	 * @throws ParserException if the there are no or too many :, or hh or mm is not an integer
 	 */
-	public static long toLong(Token t) throws ParserException {
+	public static long toLong(Token t, long emptyValue) throws ParserException {
 		String[] args = t.value.split(":");
 		if(args.length != 2)
 			throw new ParserException("wrong time format; expected hh:mm", t);
