@@ -72,7 +72,7 @@ public class ScheduleEntryParser {
 			departure = TimeManager.toLong(t, Long.MAX_VALUE);
 			break;
 		case Flags:
-			flags = new FlagData(t.value);
+			flags = FlagParser.parse(t);
 			break;
 		case Plattform:
 			plattform = t.value;
