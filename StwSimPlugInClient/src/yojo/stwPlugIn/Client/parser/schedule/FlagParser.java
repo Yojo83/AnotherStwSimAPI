@@ -31,6 +31,10 @@ public class FlagParser {
 	private ExpectedToken state = ExpectedToken.FLAG;
 	private LastFlag last = LastFlag.OTHER;
 	
+	private byte number;
+	private String arg1;
+	private int arg2;
+	
 	private FlagParser(Token raw) {
 		this.raw = raw;
 	}
@@ -42,12 +46,16 @@ public class FlagParser {
 				parseFlag(c);
 				break;
 			case ID1:
+				parseId1(c);
 				break;
 			case ID2:
+				parseId2(c);
 				break;
 			case NUMBER:
+				parseNumber(c);
 				break;
 			case NUMBER_OR_ID:
+				parseNumberOrId(c);
 				break;
 			case DIRECTION:
 				parseDirection(c);
@@ -60,6 +68,94 @@ public class FlagParser {
 		return new FlagData(raw.value, A, B, D, E, F, K, L, P, R, W);
 	}
 	
+	private void parseNumberOrId(char c) throws ParserException {
+		switch(c) {
+		case '(':
+		case '[':
+			break;
+		case '1': 	number = 1; 	break;
+		case '2': 	number = 2; 	break;
+		case '3': 	number = 3; 	break;
+		case '4': 	number = 4; 	break;
+		case '5': 	number = 5; 	break;
+		case '6': 	number = 6; 	break;
+		case '7': 	number = 7; 	break;
+		case '8': 	number = 8; 	break;
+		case '9': 	number = 9; 	break;
+		default:
+			throw new ParserException("expected number or train id not " + c, raw);
+		}
+		state = ExpectedToken.ID1;
+	}
+
+	private void parseNumber(char c) throws ParserException {
+		try {
+			B = Byte.parseByte(c + "");
+		} catch (NumberFormatException e) {
+			throw new ParserException(c + " is not a number", raw);
+		}
+		
+		if(B < 1 || B > 9)
+			throw new ParserException(c + " is not between 1 and 9", raw);
+		
+		if(last != LastFlag.B)
+			throw new ParserException("Invalid state: expected number for B flag", raw);
+		
+		last = LastFlag.OTHER;
+		state = ExpectedToken.FLAG;
+	}
+
+	private void parseId2(char c) throws ParserException {
+		switch(c) {
+		case '(':
+		case '[':
+			break;
+		case ')':
+		case ']':
+			try {
+				arg2 = Integer.parseInt(arg1);
+			} catch (NumberFormatException e) {
+				throw new ParserException("arg not a number after " + last.name(), raw);
+			}
+			state = ExpectedToken.ID1;
+			break;
+		default:
+			arg1 += c;
+		}
+	}
+
+	private void parseId1(char c) throws ParserException {
+		switch(c) {
+		case '(':
+		case '[':
+			break;
+		case ')':
+		case ']':
+			int arg;
+			try {
+				arg = Integer.parseInt(arg1);
+			} catch (NumberFormatException e) {
+				throw new ParserException("arg not a number after " + last.name(), raw);
+			}
+			switch(last) {
+			case E:				E = new EKF_Args(number, arg);				break;
+			case F:				F = new EKF_Args(number, arg);				break;
+			case K:				K = new EKF_Args(number, arg);				break;
+			case W:				W = new W_Args(arg, arg2);					break;
+			case B:
+			case OTHER:
+			default:
+				throw new ParserException("Did not expect argument after flag " + last.name(), raw);
+			}
+			arg1 = "";
+			state = ExpectedToken.FLAG;
+			last = LastFlag.OTHER;
+			break;
+		default:
+			arg1 += c;
+		}
+	}
+
 	private void parseFlag(char c) throws ParserException {
 		switch(c) {
 		case 'A':
@@ -67,6 +163,7 @@ public class FlagParser {
 			break;
 		case 'B':
 			state = ExpectedToken.NUMBER;
+			number = 0; arg1 = ""; arg2 = 0;
 			last = LastFlag.B;
 			break;
 		case 'D':
@@ -74,14 +171,17 @@ public class FlagParser {
 			break;
 		case 'E':
 			state = ExpectedToken.NUMBER_OR_ID;
+			number = 0; arg1 = ""; arg2 = 0;
 			last = LastFlag.E;
 			break;
 		case 'F':
 			state = ExpectedToken.NUMBER_OR_ID;
+			number = 0; arg1 = ""; arg2 = 0;
 			last = LastFlag.F;
 			break;
 		case 'K':
 			state = ExpectedToken.NUMBER_OR_ID;
+			number = 0; arg1 = ""; arg2 = 0;
 			last = LastFlag.K;
 			break;
 		case 'L':
@@ -95,6 +195,7 @@ public class FlagParser {
 			break;
 		case 'W':
 			state = ExpectedToken.ID2;
+			number = 0; arg1 = ""; arg2 = 0;
 			last = LastFlag.W;
 			break;
 		default:
