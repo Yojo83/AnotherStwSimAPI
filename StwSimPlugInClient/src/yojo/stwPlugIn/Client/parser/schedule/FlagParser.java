@@ -57,6 +57,9 @@ public class FlagParser {
 			case NUMBER_OR_ID:
 				parseNumberOrId(c);
 				break;
+			case POST_P:
+				parsePostP(c);
+				break;
 			case DIRECTION:
 				parseDirection(c);
 				break;
@@ -68,6 +71,16 @@ public class FlagParser {
 		return new FlagData(raw.value, A, B, D, E, F, K, L, P, R, W);
 	}
 	
+	private void parsePostP(char c) throws ParserException {
+		if(c == '(' || c == '[') {
+			state = ExpectedToken.DIRECTION;
+		} else {
+			P = P_Args.NONE;
+			state = ExpectedToken.FLAG;
+			parseFlag(c);
+		}
+	}
+
 	private void parseNumberOrId(char c) throws ParserException {
 		switch(c) {
 		case '(':
@@ -118,6 +131,7 @@ public class FlagParser {
 				throw new ParserException("arg not a number after " + last.name(), raw);
 			}
 			state = ExpectedToken.ID1;
+			arg1 = "";
 			break;
 		default:
 			arg1 += c;
@@ -141,7 +155,7 @@ public class FlagParser {
 			case E:				E = new EKF_Args(number, arg);				break;
 			case F:				F = new EKF_Args(number, arg);				break;
 			case K:				K = new EKF_Args(number, arg);				break;
-			case W:				W = new W_Args(arg, arg2);					break;
+			case W:				W = new W_Args(arg2, arg);					break;
 			case B:
 			case OTHER:
 			default:
@@ -188,7 +202,7 @@ public class FlagParser {
 			L = true;
 			break;
 		case 'P':
-			state = ExpectedToken.DIRECTION;
+			state = ExpectedToken.POST_P;
 			break;
 		case 'R':
 			R = true;
@@ -205,9 +219,6 @@ public class FlagParser {
 	
 	private void parseDirection(char c) throws ParserException {
 		switch(c) {
-		case '(':
-		case '[':
-			break;
 		case 'U':
 			P = P_Args.UP;
 			break;
@@ -233,6 +244,7 @@ public class FlagParser {
 		FLAG,
 		NUMBER,
 		NUMBER_OR_ID,
+		POST_P,
 		DIRECTION,
 		ID1,
 		ID2;
