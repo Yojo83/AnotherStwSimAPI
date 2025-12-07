@@ -76,6 +76,7 @@ public class SocketManager extends Thread {
 		String line;
 		try {
 			while((line = reader.readLine()) != null) {
+				DEBUGGER.log("received Message: " + line + "\n");
 				parser.handleLine(line, listenerSupplier.get());
 			}
 			socket.close();

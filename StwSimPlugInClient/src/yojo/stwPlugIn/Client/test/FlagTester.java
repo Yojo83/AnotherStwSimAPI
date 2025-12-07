@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData;
-import yojo.stwPlugIn.Client.parser.Token;
-import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
-import yojo.stwPlugIn.Client.parser.schedule.FlagParser;
 
 public class FlagTester {
 
