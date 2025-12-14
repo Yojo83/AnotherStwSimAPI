@@ -2,9 +2,8 @@ package yojo.stwPlugIn.Client.parser.schedule;
 
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData;
 import yojo.stwPlugIn.Client.Messages.definitions.ScheduleEntry;
-import yojo.stwPlugIn.Client.parser.Token;
-import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
-import yojo.stwPlugIn.Client.util.TimeManager;
+import yojo.stwPlugIn.Client.parser.XMLLine;
+import yojo.stwPlugIn.Client.parser.XmlParser.LineParserException;
 
 /**
  * parses one schedule entry
@@ -13,108 +12,19 @@ import yojo.stwPlugIn.Client.util.TimeManager;
  */
 public class ScheduleEntryParser {
 	
-	
-	private String plattform;
-	private String regularPlattform;
-	private long arrival;
-	private long departure;
-	private FlagData flags;
-	private String text;
-	
-	
-	private State state = State.NULL;
-	private ExpectedValue expecVal;
-	
 
-	public boolean isFinished() {
-		return state == State.Finished;
-	}
-
-	public ScheduleEntry getEntry() {		
+	public ScheduleEntry parse(XMLLine line) throws LineParserException {
+		long arrival = line.getLong("an");
+		long departure = line.getLong("ab");
+		
+		FlagData flags = FlagParser.parse(line);
+		
+		String text = line.getString("hinweistext");
+		String plattform = line.getString("name");
+		String regularPlattform = line.getString("plan");
+		
 		return new ScheduleEntry(plattform, regularPlattform, arrival, departure, flags, text);
 	}
-
-	public void parse(Token t) throws ParserException {
-		switch(state) {
-		case EXPECT_EQUAL:
-			if(t != Token.EQUAL)
-				throw new ParserException("Expected = but didn't found it", t);
-			state = State.EXPECT_VALUE;
-			break;
-		case EXPECT_VALUE:
-			if(t.value == null)
-				throw new ParserException("Expected string but didn't found it", t);
-			setValue(expecVal, t);
-			state = State.NULL;
-			break;
-		case NULL:
-			if(t == Token.SLASH) {
-				state = State.Finished;
-				break;
-			}
-			
-			if(t.value == null)
-				throw new ParserException("Expected string but didn't found it", t);
-			state = State.EXPECT_EQUAL;
-			this.expecVal = getExpectedValue(t);
-			break;
-		default:
-			throw new ParserException("PlattformParser was not in a valid state", t);
-		}
-	}
-
-	private void setValue(ExpectedValue ev, Token t) throws ParserException {
-		switch (ev) {
-		case Arrival:
-			arrival = TimeManager.toLong(t, 0);
-			break;
-		case Departure:
-			departure = TimeManager.toLong(t, Long.MAX_VALUE);
-			break;
-		case Flags:
-			flags = FlagParser.parse(t);
-			break;
-		case Plattform:
-			plattform = t.value;
-			break;
-		case RegularPlattform:
-			regularPlattform = t.value;
-			break;
-		case Text:
-			text = t.value;
-			break;
-		default:
-			throw new ParserException("internal (impossible) error", t);
-		}
-	}
-
-	private ExpectedValue getExpectedValue(Token t) throws ParserException {
-		switch(t.value) {
-		case "plan": return ExpectedValue.RegularPlattform;
-		case "name": return ExpectedValue.Plattform;
-		case "an": return ExpectedValue.Arrival;
-		case "ab": return ExpectedValue.Departure;
-		case "flags": return ExpectedValue.Flags;
-		case "hinweistext": return ExpectedValue.Text;
-		default:
-			throw new ParserException("failed to deduce token to Plattform variable", t);
-		}
-	}
-
-	private static enum State{
-		NULL,
-		EXPECT_EQUAL,
-		EXPECT_VALUE,
-		Finished;
-	}
 	
-	private static enum ExpectedValue {
-		Plattform,
-		RegularPlattform,
-		Arrival,
-		Departure,
-		Flags,
-		Text;
-	}
-
+	
 }

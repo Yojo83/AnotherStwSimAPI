@@ -1,20 +1,23 @@
 package yojo.stwPlugIn.Client.parser.schedule;
 
-import yojo.stwPlugIn.Client.parser.Token;
-import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.EKF_Args;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.P_Args;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.W_Args;
+import yojo.stwPlugIn.Client.parser.XMLLine;
+import yojo.stwPlugIn.Client.parser.XmlParser.LineParserException;
 
 public class FlagParser {
 
 	
-	public static FlagData parse(Token t) throws ParserException {
-		return (new FlagParser(t)).parse();
+	public static FlagData parse(XMLLine line) throws LineParserException {
+		if(line == null)
+			throw new LineParserException("line is null", line);
+		return (new FlagParser(line, line.getString("flags"))).parse();
 	}
 	
-	private final Token raw;
+	private final XMLLine line;
+	private final String flags;
 	
 
 	private boolean A = false;		
@@ -35,12 +38,15 @@ public class FlagParser {
 	private String arg1;
 	private int arg2;
 	
-	private FlagParser(Token raw) {
-		this.raw = raw;
+	private FlagParser(XMLLine line, String flags) throws LineParserException {
+		if(flags == null)
+			throw new LineParserException("expected flags", line);
+		this.line = line;
+		this.flags = flags;
 	}
 	
-	private FlagData parse() throws ParserException {
-		for(char c : raw.value.toUpperCase().toCharArray()) {
+	private FlagData parse() throws LineParserException {
+		for(char c : flags.toUpperCase().toCharArray()) {
 			switch(state) {
 			case FLAG:
 				parseFlag(c);
@@ -64,14 +70,14 @@ public class FlagParser {
 				parseDirection(c);
 				break;
 			default:
-				throw new ParserException("invalid state at " + c, raw);
+				throw new LineParserException("invalid state at " + c, line);
 			}
 		}
 		
-		return new FlagData(raw.value, A, B, D, E, F, K, L, P, R, W);
+		return new FlagData(flags, A, B, D, E, F, K, L, P, R, W);
 	}
 	
-	private void parsePostP(char c) throws ParserException {
+	private void parsePostP(char c) throws LineParserException {
 		if(c == '(' || c == '[') {
 			state = ExpectedToken.DIRECTION;
 		} else {
@@ -81,7 +87,7 @@ public class FlagParser {
 		}
 	}
 
-	private void parseNumberOrId(char c) throws ParserException {
+	private void parseNumberOrId(char c) throws LineParserException {
 		switch(c) {
 		case '(':
 		case '[':
@@ -96,29 +102,29 @@ public class FlagParser {
 		case '8': 	number = 8; 	break;
 		case '9': 	number = 9; 	break;
 		default:
-			throw new ParserException("expected number or train id not " + c, raw);
+			throw new LineParserException("expected number or train id not " + c, line);
 		}
 		state = ExpectedToken.ID1;
 	}
 
-	private void parseNumber(char c) throws ParserException {
+	private void parseNumber(char c) throws LineParserException {
 		try {
 			B = Byte.parseByte(c + "");
 		} catch (NumberFormatException e) {
-			throw new ParserException(c + " is not a number", raw);
+			throw new LineParserException(c + " is not a number", line);
 		}
 		
 		if(B < 1 || B > 9)
-			throw new ParserException(c + " is not between 1 and 9", raw);
+			throw new LineParserException(c + " is not between 1 and 9", line);
 		
 		if(last != LastFlag.B)
-			throw new ParserException("Invalid state: expected number for B flag", raw);
+			throw new LineParserException("Invalid state: expected number for B flag", line);
 		
 		last = LastFlag.OTHER;
 		state = ExpectedToken.FLAG;
 	}
 
-	private void parseId2(char c) throws ParserException {
+	private void parseId2(char c) throws LineParserException {
 		switch(c) {
 		case '(':
 		case '[':
@@ -128,7 +134,7 @@ public class FlagParser {
 			try {
 				arg2 = Integer.parseInt(arg1);
 			} catch (NumberFormatException e) {
-				throw new ParserException("arg not a number after " + last.name(), raw);
+				throw new LineParserException("arg not a number after " + last.name(), line);
 			}
 			state = ExpectedToken.ID1;
 			arg1 = "";
@@ -138,7 +144,7 @@ public class FlagParser {
 		}
 	}
 
-	private void parseId1(char c) throws ParserException {
+	private void parseId1(char c) throws LineParserException {
 		switch(c) {
 		case '(':
 		case '[':
@@ -149,7 +155,7 @@ public class FlagParser {
 			try {
 				arg = Integer.parseInt(arg1);
 			} catch (NumberFormatException e) {
-				throw new ParserException("arg not a number after " + last.name(), raw);
+				throw new LineParserException("arg not a number after " + last.name(), line);
 			}
 			switch(last) {
 			case E:				E = new EKF_Args(number, arg);				break;
@@ -159,7 +165,7 @@ public class FlagParser {
 			case B:
 			case OTHER:
 			default:
-				throw new ParserException("Did not expect argument after flag " + last.name(), raw);
+				throw new LineParserException("Did not expect argument after flag " + last.name(), line);
 			}
 			arg1 = "";
 			state = ExpectedToken.FLAG;
@@ -170,7 +176,7 @@ public class FlagParser {
 		}
 	}
 
-	private void parseFlag(char c) throws ParserException {
+	private void parseFlag(char c) throws LineParserException {
 		switch(c) {
 		case 'A':
 			A = true;
@@ -213,11 +219,11 @@ public class FlagParser {
 			last = LastFlag.W;
 			break;
 		default:
-			throw new ParserException("Expected Flag at " + c, raw);
+			throw new LineParserException("Expected Flag at " + c, line);
 		}
 	}
 	
-	private void parseDirection(char c) throws ParserException {
+	private void parseDirection(char c) throws LineParserException {
 		switch(c) {
 		case 'U':
 			P = P_Args.UP;
@@ -236,7 +242,7 @@ public class FlagParser {
 			state = ExpectedToken.FLAG;
 			break;
 		default:
-			throw new ParserException("expected direction at " + c, raw);
+			throw new LineParserException("expected direction at " + c, line);
 		}
 	}
 	

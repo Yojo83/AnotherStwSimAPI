@@ -4,8 +4,9 @@ import java.util.HashMap;
 
 import yojo.stwPlugIn.Client.Messages.TrainListResponse;
 import yojo.stwPlugIn.Client.parser.ResponseParser;
-import yojo.stwPlugIn.Client.parser.Token;
-import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
+import yojo.stwPlugIn.Client.parser.XMLLine;
+import yojo.stwPlugIn.Client.parser.XMLLineType;
+import yojo.stwPlugIn.Client.parser.XmlParser.LineParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
 /**
@@ -15,74 +16,34 @@ import yojo.stwPlugIn.Client.util.ResponseListener;
  */
 public class TrainListResponseParser implements ResponseParser {
 
-	private TrainParser parser;
-	
-	private HashMap<Integer, String> entrys = new HashMap<>();
-	
-	private boolean isFinished = false;
-	private State state = State.ReadFirstEnd;
+	private HashMap<Integer, String> entrys;
 	
 	@Override
-	public boolean isFinished() {
-		return isFinished;
-	}
-
-	@Override
-	public void parse(Token t, ResponseListener responseListener) throws ParserException {
-		switch(state) {
-		case ReadFirstEnd:
-			if(t != Token.END)
-				throw new ParserException("expected >", t);
-			state = State.ReadNewXml;
-			break;
-		case ReadNewXml:
-			if(t != Token.START)
-				throw new ParserException("expected <", t);
-			state = State.ReadXmlIdentifier;
-			break;
-		case ReadXmlIdentifier:
-			if(t == Token.SLASH) {
-				state = State.ReadZugliste;
-				break;
-			}
-			if("zug".equals(t.value)) {
-				state = State.ReadTrain;
-				parser = new TrainParser();
-				break;
-			}
-			throw new ParserException("Expected / or zug", t);
-		case ReadTrain:
-			parser.parse(t, responseListener);
-			if(t == Token.END) {
-				if(!parser.isFinished())
-					throw new ParserException("not all values of plattform are set but message is over", t);
-				state = State.ReadNewXml;
-				entrys.put(parser.tid, parser.name);
-			}
-			break;
-		case ReadZugliste:
-			if(!"zugliste".equals(t.value.toLowerCase()))
-				throw new ParserException("expected zugfahrplan", t);
-			state = State.ReadSecondEnd;
-			break;
-		case ReadSecondEnd:
-			if(t != Token.END)
-				throw new ParserException("expected >", t);
-			this.isFinished = true;
+	public void parse(XMLLine line, ResponseListener responseListener) throws LineParserException {
+		if(line.Type == XMLLineType.zugliste) {
+			if(entrys != null) 
+				throw new LineParserException("already parsing", line);
+			entrys = new HashMap<>();
+		} else if(line.Type == XMLLineType.zugliste_end) {
+			entrys = null;
 			responseListener.onTrainList(new TrainListResponse(entrys));
-			break;
-		default:
-			throw new ParserException("State violation", t);
+		} else {
+			if(entrys == null)
+				throw new LineParserException("currently not parsing schedule list", line);
+			if(line.Type != XMLLineType.zug)
+				throw new LineParserException("expected zug", line);
+			parseTrain(line);
 		}
 	}
-
 	
-	private static enum State{
-		ReadFirstEnd,
-		ReadNewXml,
-		ReadXmlIdentifier,
-		ReadTrain,
-		ReadZugliste,
-		ReadSecondEnd;
+	
+	private void parseTrain(XMLLine line) throws LineParserException {
+		int tid = line.getInt("zid");
+		String name = line.getString("name");
+		if(name == null)
+			throw new LineParserException("expected name", line);
+		
+		entrys.put(tid, name);
 	}
+	
 }

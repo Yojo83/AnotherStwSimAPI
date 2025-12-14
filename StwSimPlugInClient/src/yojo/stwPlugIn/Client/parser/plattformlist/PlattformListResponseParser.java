@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import yojo.stwPlugIn.Client.Messages.PlattformlistResponse;
 import yojo.stwPlugIn.Client.Messages.definitions.PlattformData;
 import yojo.stwPlugIn.Client.parser.ResponseParser;
-import yojo.stwPlugIn.Client.parser.Token;
-import yojo.stwPlugIn.Client.parser.XmlParser.ParserException;
+import yojo.stwPlugIn.Client.parser.XMLLine;
+import yojo.stwPlugIn.Client.parser.XMLLineType;
+import yojo.stwPlugIn.Client.parser.XmlParser.LineParserException;
 import yojo.stwPlugIn.Client.util.ResponseListener;
 
 /**
@@ -15,73 +16,28 @@ import yojo.stwPlugIn.Client.util.ResponseListener;
  *
  */
 public class PlattformListResponseParser implements ResponseParser {
-	
-	private PlattformParser parser;
 
+	private PlattformParser parser = null;
 	private ArrayList<PlattformData> entrys = new ArrayList<>();
 	
-	private State state = State.ReadFirstEnd;
-	
-	@Override
-	public boolean isFinished() {
-		return state == State.Finished;
-	}
 
 	@Override
-	public void parse(Token t, ResponseListener responseListener) throws ParserException {
-		switch(state) {
-		case ReadFirstEnd:
-			if(t != Token.END)
-				throw new ParserException("expected >", t);
-			state = State.ReadNewXml;
-			break;
-		case ReadNewXml:
-			if(t != Token.START)
-				throw new ParserException("expected <", t);
-			state = State.ReadXmlIdentifier;
-			break;
-		case ReadXmlIdentifier:
-			if(t == Token.SLASH) {
-				state = State.ReadBahnsteigListe;
-				break;
-			}
-			if("bahnsteig".equals(t.value)) {
-				state = State.ReadPlattform;
-				parser = new PlattformParser();
-				break;
-			}
-			throw new ParserException("expected / or bahnsteig", t);
-		case ReadPlattform:
-			parser.parse(t, responseListener);
-			if(t == Token.END && parser.isFinished()) {
-				entrys.add(parser.getEntry());
-				state = State.ReadNewXml;
-			}
-			break;
-		case ReadBahnsteigListe:
-			if(!"bahnsteigliste".equals(t.value))
-				throw new ParserException("expected bahnsteigliste", t);
-			state = State.ReadSecondEnd;
-			break;
-		case ReadSecondEnd:
-			if(t != Token.END)
-				throw new ParserException("expected >", t);
-			state = State.Finished;
+	public void parse(XMLLine line, ResponseListener responseListener) throws LineParserException {
+		if(line.Type == XMLLineType.bahnsteigliste) {
+			if(parser != null) 
+				throw new LineParserException("already parsing", line);
+			parser = new PlattformParser();
+		} else if(line.Type == XMLLineType.bahnsteigliste_end) {
+			parser = null;
 			responseListener.onPlattformList(new PlattformlistResponse(entrys));
-			break;
-		default:
-			throw new ParserException("State violation", t);
+		} else {
+			if(parser == null)
+				throw new LineParserException("currently not parsing plattform list", line);
+			PlattformData data = parser.parse(line);
+			if(data != null)
+				entrys.add(data);
 		}
 	}
-
 	
-	private static enum State{
-		ReadFirstEnd,
-		ReadNewXml,
-		ReadXmlIdentifier,
-		ReadPlattform,
-		ReadBahnsteigListe,
-		ReadSecondEnd,
-		Finished;
-	}
+
 }
