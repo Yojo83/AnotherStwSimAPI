@@ -9,6 +9,12 @@ import java.util.ArrayList;
 public class DEBUGGER {
 
 	/**
+	 * if true, stores all new log lines. 
+	 * use printLog to print them
+	 */
+	public static boolean logMessages = false;
+	
+	/**
 	 * while true, print all new log lines to the console
 	 */
 	public static boolean debugMode = false;
@@ -23,7 +29,8 @@ public class DEBUGGER {
 	 * @param string the message to log
 	 */
 	public static void log(String string) {
-		log.add(string);
+		if(logMessages)
+			log.add(string);
 
 		if(debugMode)
 			System.out.println(string);

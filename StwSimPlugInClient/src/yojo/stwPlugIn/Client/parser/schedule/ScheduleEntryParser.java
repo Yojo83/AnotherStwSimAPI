@@ -14,8 +14,8 @@ public class ScheduleEntryParser {
 	
 
 	public ScheduleEntry parse(XMLLine line) throws LineParserException {
-		long arrival = line.getLong("an");
-		long departure = line.getLong("ab");
+		long arrival = line.getTime("an", 0);
+		long departure = line.getTime("ab", Long.MAX_VALUE);
 		
 		FlagData flags = FlagParser.parse(line);
 		

@@ -8,6 +8,7 @@ import yojo.stwPlugIn.Client.parser.misc.Enr4ResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.EventResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.FsSetResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.HeatResponseParser;
+import yojo.stwPlugIn.Client.parser.misc.StatusResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.StitzResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.SystemInfoResponseParser;
 import yojo.stwPlugIn.Client.parser.misc.TimeResponseParser;
@@ -43,9 +44,11 @@ public class XmlParser {
 			parsers.get(xml.Type).parse(xml, responseListener);
 		} catch (TokenParserException e) {
 			DEBUGGER.log("Error at Token " + e.token.toString() + " in Message: " + line + ": " + e.msg);
+			e.printStackTrace();
 			responseListener.unhandeledMessage(new RawMessage(line));
 		} catch (LineParserException e) {
-			DEBUGGER.log("Error at Token " + e.line.toString() + " in Message: " + line + ": " + e.msg);
+			DEBUGGER.log("Error at Line " + e.line.toString() + " in Message: " + line + ": " + e.msg);
+			e.printStackTrace();
 			responseListener.unhandeledMessage(new RawMessage(line));
 		}
 	}
@@ -102,6 +105,7 @@ public class XmlParser {
 		parsers.put(XMLLineType.enr4, new Enr4ResponseParser());
 		parsers.put(XMLLineType.element4, new Element4ResponseParser());
 		parsers.put(XMLLineType.simzeit, new TimeResponseParser());
+		parsers.put(XMLLineType.status, new StatusResponseParser());
 	}
 	
 	/**
@@ -117,6 +121,7 @@ public class XmlParser {
 		public final Token token;
 		
 		public TokenParserException(String msg, Token token) {
+			super("Error at Token " + token.toString() + " : " + msg);
 			this.msg = msg;
 			this.token = token;
 		}
@@ -130,6 +135,7 @@ public class XmlParser {
 		public final XMLLine line;
 		
 		public LineParserException(String msg, XMLLine line) {
+			super("Error at Line " + line.toString() + " : " + msg);
 			this.msg = msg;
 			this.line = line;
 		}

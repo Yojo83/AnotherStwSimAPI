@@ -26,7 +26,8 @@ public enum XMLLineType {
 	fsset,
 	enr4,
 	element4,
-	simzeit;
+	simzeit,
+	status;
 	
 	public static XMLLineType parse(Token t, boolean lineEnd) throws TokenParserException {
 		XMLLineType type;

@@ -33,6 +33,7 @@ public class TrainScheduleResponseParser implements ResponseParser {
 		} else if(line.Type == XMLLineType.zugfahrplan_end) {
 			parser = null;
 			responseListener.onTrainSchedule(new TrainScheduleResponse(trainId, entrys));
+			entrys = new ArrayList<>();
 		} else {
 			if(parser == null)
 				throw new LineParserException("currently not parsing schedule list", line);

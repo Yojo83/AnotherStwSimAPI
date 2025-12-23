@@ -20,14 +20,14 @@ public class XMLLineParser {
 	}
 	
 	public void parse(Token t) throws TokenParserException {
-		if(t == Token.SLASH) {
+		if(state != State.ENDED && t == Token.SLASH) {
 			state = State.EXPECT_END;
 			return;
 		}
 		
 		switch(state) {
 		case EXPECT_START:
-			if(t == Token.END){
+			if(t == Token.START){
 				state = State.EXPECT_ID;
 				break;
 			}
@@ -43,6 +43,10 @@ public class XMLLineParser {
 			if(t.value != null) {
 				state = State.EXPECT_EQUAL;
 				expectedValue = t.value;
+				break;
+			}
+			if(t == Token.END) {
+				state = State.ENDED;
 				break;
 			}
 			throw new TokenParserException("Expected string ", t);
@@ -70,6 +74,8 @@ public class XMLLineParser {
 			}
 			throw new TokenParserException("Expected >", t);
 		case ENDED:
+			if(type == XMLLineType.status)
+				break;
 			throw new TokenParserException("Expected no Tokens", t);
 		default:
 			throw new TokenParserException("TrainDetailsResponseParser was not in a valid state", t);

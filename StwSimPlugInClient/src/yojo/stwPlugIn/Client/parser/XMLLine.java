@@ -3,6 +3,7 @@ package yojo.stwPlugIn.Client.parser;
 import java.util.HashMap;
 
 import yojo.stwPlugIn.Client.parser.XmlParser.LineParserException;
+import yojo.stwPlugIn.Client.util.TimeManager;
 
 public class XMLLine {
 
@@ -48,6 +49,11 @@ public class XMLLine {
 	public boolean getBool(String key) {
 		return Boolean.parseBoolean(getString(key));
 	}
+
+	public long getTime(String key, long emptyValue) throws LineParserException {
+		String value = getString(key);
+		return TimeManager.toLong(value, this, emptyValue);
+	}
 	
 	@SuppressWarnings("incomplete-switch")
 	@Override
@@ -82,4 +88,5 @@ public class XMLLine {
 		builder.append('>');
 		return builder.toString();
 	}
+
 }

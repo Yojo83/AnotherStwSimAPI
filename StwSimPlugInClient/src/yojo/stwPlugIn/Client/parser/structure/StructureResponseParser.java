@@ -60,7 +60,7 @@ public class StructureResponseParser implements ResponseParser {
 	}
 
 	private void parseShape(XMLLine line) throws LineParserException {
-		int enr = line.contains("enr") ? line.getInt("enr") : 0;
+		int enr = line.contains("enr") ? line.getInt("enr") : -1;
 		String name = line.getString("name");
 		if(name == null)
 			throw new LineParserException("expected name", line);
@@ -71,16 +71,22 @@ public class StructureResponseParser implements ResponseParser {
 		
 		switch(type) {
 		case "2": 
+			if(enr < 0)
+				throw new LineParserException("expected enr", line);
 			Signal signal = new Signal(name, enr);
 			signals.add(signal);
 			shapes.put(String.valueOf(enr), signal);
 			break;
 		case "3": 
+			if(enr < 0)
+				throw new LineParserException("expected enr", line);
 			Switch s = new Switch(name, enr, false);
 			switches.add(s);
 			shapes.put(String.valueOf(enr), s);
 			break;
 		case "4":
+			if(enr < 0)
+				throw new LineParserException("expected enr", line);
 			s = new Switch(name, enr, true);
 			switches.add(s);
 			shapes.put(String.valueOf(enr), s);
@@ -91,11 +97,15 @@ public class StructureResponseParser implements ResponseParser {
 			shapes.put(name, p);
 			break;
 		case "6":
+			if(enr < 0)
+				throw new LineParserException("expected enr", line);
 			Entry en = new Entry(name, enr);
 			entrys.add(en);
 			shapes.put(String.valueOf(enr), en);
 			break;
 		case "7":
+			if(enr < 0)
+				throw new LineParserException("expected enr", line);
 			Exit ex = new Exit(name, enr);
 			exits.add(ex);
 			shapes.put(String.valueOf(enr), ex);
@@ -115,11 +125,11 @@ public class StructureResponseParser implements ResponseParser {
 		if(name1 == null)
 			name1 = line.getString("name1");
 		if(name1 == null)
-			throw new LineParserException("expected enr1 or name1", line);
+			return; //throw new LineParserException("expected enr1 or name1", line);
 		
 		Shape shape1 = shapes.get(name1);
 		if(shape1 == null)
-			throw new LineParserException(name1 + "is not a shape", line);
+			throw new LineParserException(name1 + " is not a shape", line);
 		
 		String name2 = line.getString("enr2");
 		if(name2 == null)
@@ -127,9 +137,9 @@ public class StructureResponseParser implements ResponseParser {
 		if(name2 == null)
 			throw new LineParserException("expected enr2 or name2", line);
 
-		Shape shape2 = shapes.get(name1);
+		Shape shape2 = shapes.get(name2);
 		if(shape2 == null)
-			throw new LineParserException(name1 + "is not a shape", line);
+			return; //throw new LineParserException(name2 + " is not a shape", line);
 		
 		connections.add(new ShapeConnection(shape1, shape2));
 	}

@@ -25,8 +25,8 @@ public class TrainListResponseParser implements ResponseParser {
 				throw new LineParserException("already parsing", line);
 			entrys = new HashMap<>();
 		} else if(line.Type == XMLLineType.zugliste_end) {
-			entrys = null;
 			responseListener.onTrainList(new TrainListResponse(entrys));
+			entrys = null;
 		} else {
 			if(entrys == null)
 				throw new LineParserException("currently not parsing schedule list", line);
