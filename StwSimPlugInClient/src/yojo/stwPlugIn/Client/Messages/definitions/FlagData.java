@@ -33,7 +33,7 @@ public class FlagData {
 	 * Else this contains the train id of the new train and a counting number of the flag (0 if the flag has none)
 	 * The E flag gives the train a new train id and name
 	 */
-	public final EKF_Args E;
+	public final E_Args E;
 	/**
 	 * null if the F flag is not present
 	 * Else this contains the train id of the new train and a counting number of the flag (0 if the flag has none)
@@ -69,7 +69,7 @@ public class FlagData {
 	 */
 	public final W_Args W;
 	
-	public FlagData(String flags, boolean a, byte b, boolean d, EKF_Args e, 
+	public FlagData(String flags, boolean a, byte b, boolean d, E_Args e, 
 			EKF_Args f, EKF_Args k, boolean l, P_Args p, boolean r, W_Args w) {
 		this.flags = flags;
 		this.A = a;
@@ -98,6 +98,16 @@ public class FlagData {
 			this.multiCount = multiCount;
 			this.zid = zid;
 		}
+	}
+	
+	public static class E_Args extends EKF_Args{
+		public final P_Args direction;
+		
+		public E_Args(byte multiCount, int zid, P_Args direction) {
+			super(multiCount, zid);
+			this.direction = direction;
+		}
+		
 	}
 	
 	public static class W_Args{

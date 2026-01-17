@@ -2,6 +2,7 @@ package yojo.stwPlugIn.Client.parser.schedule;
 
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.EKF_Args;
+import yojo.stwPlugIn.Client.Messages.definitions.FlagData.E_Args;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.P_Args;
 import yojo.stwPlugIn.Client.Messages.definitions.FlagData.W_Args;
 import yojo.stwPlugIn.Client.parser.XMLLine;
@@ -23,7 +24,7 @@ public class FlagParser {
 	private boolean A = false;		
 	private byte B = 0;		
 	private boolean D = false;				
-	private EKF_Args E = null;				
+	private E_Args E = null;				
 	private EKF_Args F = null;
 	private EKF_Args K = null;				
 	private boolean L = false;				
@@ -158,7 +159,7 @@ public class FlagParser {
 				throw new LineParserException("arg not a number after " + last.name(), line);
 			}
 			switch(last) {
-			case E:				E = new EKF_Args(number, arg);				break;
+			case E:				state = ExpectedToken.POST_P;				break;
 			case F:				F = new EKF_Args(number, arg);				break;
 			case K:				K = new EKF_Args(number, arg);				break;
 			case W:				W = new W_Args(arg2, arg);					break;
@@ -224,25 +225,38 @@ public class FlagParser {
 	}
 	
 	private void parseDirection(char c) throws LineParserException {
+		P_Args temp;
 		switch(c) {
 		case 'U':
-			P = P_Args.UP;
+			temp = P_Args.UP;
 			break;
 		case 'D':
-			P = P_Args.DOWN;
+			temp = P_Args.DOWN;
 			break;
 		case 'L':
-			P = P_Args.LEFT;
+			temp = P_Args.LEFT;
 			break;
 		case 'R':
-			P = P_Args.RIGHT;
+			temp = P_Args.RIGHT;
 			break;
 		case ')':
 		case ']':
 			state = ExpectedToken.FLAG;
-			break;
+			return;
 		default:
 			throw new LineParserException("expected direction at " + c, line);
+		}
+
+		if(last == LastFlag.E) {
+			int arg;
+			try {
+				arg = Integer.parseInt(arg1);
+			} catch (NumberFormatException e) {
+				throw new LineParserException("arg not a number after " + last.name(), line);
+			}
+			E = new E_Args(number, arg, temp);
+		} else {
+			P = temp;
 		}
 	}
 	
